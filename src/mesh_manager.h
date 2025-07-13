@@ -4,6 +4,10 @@
 #include <Arduino.h>
 #include <functional>
 
+#ifndef LED_BUILTIN
+#define LED_BUILTIN 2
+#endif
+
 enum class MeshState {
     SEARCHING,
     ROOT,

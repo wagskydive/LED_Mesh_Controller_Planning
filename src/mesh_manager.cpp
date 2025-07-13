@@ -1,4 +1,5 @@
 #include "mesh_manager.h"
+#include <Arduino.h>
 #include <esp_wifi.h>
 #include <esp_mesh.h>
 
@@ -30,7 +31,7 @@ void MeshManager::update() {
         uint8_t buf[150];
         data.data = buf;
         data.size = sizeof(buf);
-        if (esp_mesh_recv(&from, &data, 0, &flag, 10) == ESP_OK) {
+        if (esp_mesh_recv(&from, &data, 0, &flag, NULL, 0) == ESP_OK) {
             String msg = String((char *)data.data);
             message_cb(msg);
         }
