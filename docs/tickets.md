@@ -87,3 +87,85 @@ Setup AsyncWebServer and REST API:
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T2.1: ESP-Mesh Init
+
+**Milestone**: Mesh Networking Framework
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: High
+
+### 🎯 Description
+Set up the ESP-Mesh network layer so nodes can join a mesh.
+Use the ESP-IDF mesh APIs. Prepare a MeshManager class with a `begin()` method.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T2.2: Root Node Auto-Election
+
+**Milestone**: Mesh Networking Framework
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: High
+
+### 🎯 Description
+Implement logic so that one node in the mesh becomes the root automatically.
+Expose `is_root_node()` in `MeshManager`.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T2.3: Mesh Messaging
+
+**Milestone**: Mesh Networking Framework
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: Medium
+
+### 🎯 Description
+Provide broadcast messaging between nodes.
+Add `send_message()` and `on_message()` handlers in `MeshManager`.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T2.4: LED Feedback for Mesh State
+
+**Milestone**: Mesh Networking Framework
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: Low
+
+### 🎯 Description
+Use the onboard LED to indicate mesh status:
+- Fast blink when searching
+- Solid when connected as root
+- Slow blink when connected as a node
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
