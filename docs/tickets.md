@@ -25,6 +25,82 @@ Set up the development environment so that the project can be managed, versioned
 
 ---
 
+## 🎟️ Ticket T3.1: Integrate NeoPixel
+
+**Milestone**: FX Engine and LED Control
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: High
+
+### 🎯 Description
+Add Adafruit_NeoPixel library support and provide an `LEDManager` class to drive the LED strip.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T3.2: FX Engine Core
+
+**Milestone**: FX Engine and LED Control
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: High
+
+### 🎯 Description
+Implement an `FXEngine` class capable of running timed lighting effects across the LED strip.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T3.3: Basic Effects (Chase, Pulse)
+
+**Milestone**: FX Engine and LED Control
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: Medium
+
+### 🎯 Description
+Add chase and pulse effects to the `FXEngine` as initial demonstrations.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T3.4: AutoFX Mode
+
+**Milestone**: FX Engine and LED Control
+**Created by**: system
+**Status**: 🚧 In Progress
+**Priority**: Low
+
+### 🎯 Description
+Rotate through available effects automatically when no external control is present.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+
 ## 🎟️ Ticket T1.1: NVS Settings Schema
 
 **Milestone**: Core System Initialization  
@@ -94,7 +170,7 @@ Setup AsyncWebServer and REST API:
 
 **Milestone**: Mesh Networking Framework
 **Created by**: system
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: High
 
 ### 🎯 Description
@@ -102,11 +178,11 @@ Set up the ESP-Mesh network layer so nodes can join a mesh.
 Use the ESP-IDF mesh APIs. Prepare a MeshManager class with a `begin()` method.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -114,7 +190,7 @@ Use the ESP-IDF mesh APIs. Prepare a MeshManager class with a `begin()` method.
 
 **Milestone**: Mesh Networking Framework
 **Created by**: system
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: High
 
 ### 🎯 Description
@@ -122,11 +198,11 @@ Implement logic so that one node in the mesh becomes the root automatically.
 Expose `is_root_node()` in `MeshManager`.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -134,7 +210,7 @@ Expose `is_root_node()` in `MeshManager`.
 
 **Milestone**: Mesh Networking Framework
 **Created by**: system
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -142,11 +218,11 @@ Provide broadcast messaging between nodes.
 Add `send_message()` and `on_message()` handlers in `MeshManager`.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -154,7 +230,7 @@ Add `send_message()` and `on_message()` handlers in `MeshManager`.
 
 **Milestone**: Mesh Networking Framework
 **Created by**: system
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -164,8 +240,8 @@ Use the onboard LED to indicate mesh status:
 - Slow blink when connected as a node
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
