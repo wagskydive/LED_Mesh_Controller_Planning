@@ -7,5 +7,6 @@ The system uses ESP32 boards arranged in a mesh network to drive LED fixtures. N
 - **SettingsManager**: Persists configuration using NVS.
 - **WiFiManager**: Connects to configured network or starts an access point.
 - **WebServer**: Provides REST API and serves the web console.
+- **LEDManager**: Wraps Adafruit_NeoPixel to drive the LED strip.
 - **FXEngine**: Generates lighting effects for connected LEDs.
 - **WebConsole**: Serves an interface from SPIFFS for managing scenes and settings.
