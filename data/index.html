@@ -3,8 +3,68 @@
 <head>
     <meta charset="utf-8">
     <title>LED Mesh Controller</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #scene-list li { cursor: pointer; }
+    </style>
 </head>
 <body>
     <h1>LED Mesh Controller</h1>
+    <section>
+        <h2>Scenes</h2>
+        <ul id="scene-list"></ul>
+        <input id="scene-name" placeholder="Scene name">
+        <select id="scene-effect">
+            <option value="CHASE">Chase</option>
+            <option value="PULSE">Pulse</option>
+            <option value="NONE">None</option>
+        </select>
+        <button id="save-btn">Save</button>
+    </section>
+    <section>
+        <h2>Playback</h2>
+        <button id="reload-btn">Reload Scenes</button>
+    </section>
+    <script>
+    const sceneList = document.getElementById('scene-list');
+    const sceneName = document.getElementById('scene-name');
+    const sceneEffect = document.getElementById('scene-effect');
+
+    function loadScenes() {
+        fetch('/scenes').then(r => r.json()).then(data => {
+            sceneList.innerHTML = '';
+            data.forEach(sc => {
+                const li = document.createElement('li');
+                li.textContent = sc.name;
+                li.onclick = () => playScene(sc.id);
+                sceneList.appendChild(li);
+            });
+        });
+    }
+
+    function saveScene() {
+        fetch('/scenes').then(r => r.json()).then(data => {
+            const id = Date.now();
+            data.push({id, name: sceneName.value, effect: sceneEffect.value});
+            return fetch('/scenes', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+        }).then(loadScenes);
+    }
+
+    function playScene(id) {
+        fetch('/play', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id})
+        });
+    }
+
+    document.getElementById('save-btn').addEventListener('click', saveScene);
+    document.getElementById('reload-btn').addEventListener('click', loadScenes);
+    loadScenes();
+    </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 #include "fx_engine.h"
 #include "artnet_receiver.h"
 #include "dmx_output.h"
+#include "scene_manager.h"
 
 SettingsManager settings_mgr;
 WiFiManager wifi_mgr;
@@ -16,6 +17,7 @@ LEDManager led_mgr;
 FXEngine fx_engine;
 ArtNetReceiver artnet;
 DMXOutput dmx_out;
+SceneManager scene_mgr;
 ControllerSettings settings;
 static unsigned long last_dmx_time = 0;
 static const unsigned long DMX_TIMEOUT = 2000;
@@ -28,6 +30,8 @@ void setup() {
     if (!wifi_mgr.connect(settings)) {
         wifi_mgr.start_ap();
     }
+    scene_mgr.begin();
+    scene_mgr.load();
     mesh_mgr.begin(settings.is_root);
     led_mgr.begin(settings.led_count, 5);
     fx_engine.begin(led_mgr);
@@ -44,7 +48,7 @@ void setup() {
             fx_overridden = true;
         }
     });
-    web_server.begin(settings_mgr, settings);
+    web_server.begin(settings_mgr, settings, scene_mgr, fx_engine);
 }
 
 void loop() {
