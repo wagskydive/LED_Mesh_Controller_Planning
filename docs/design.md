@@ -3,7 +3,7 @@
 The system uses ESP32 boards arranged in a mesh network to drive LED fixtures. Nodes elect a root that bridges to Art-Net or DMX sources. A web-based console provides configuration and playback controls.
 
 ## Components
- - **MeshManager**: Initializes ESP-Mesh, handles root election, LED status, and message routing.
+ - **MeshManager**: Initializes ESP-Mesh, handles root election, broadcast messaging, and indicates mesh state using the onboard LED.
 - **SettingsManager**: Persists configuration using NVS.
 - **WiFiManager**: Connects to configured network or starts an access point.
 - **WebServer**: Provides REST API and serves the web console.
