@@ -448,3 +448,22 @@ Expose the list of connected mesh nodes via a new `/nodes` API endpoint.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T7.1: Project Wiki and README
+
+**Milestone**: Documentation
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Document all firmware functionality in a wiki-style markdown file and update the README with build instructions.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written

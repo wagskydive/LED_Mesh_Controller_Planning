@@ -50,3 +50,8 @@ This file defines major milestones and high-level tasks for the LED Mesh Control
 - T6.1: Complementary Color FX
 - T6.2: Mic Input for Beat Sync
 - T6.3: Node Topology Viewer
+
+## ✅ Milestone 7: Documentation
+
+- T7.1: Project Wiki and README
+
