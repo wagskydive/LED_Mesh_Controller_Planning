@@ -250,7 +250,7 @@ Use the onboard LED to indicate mesh status:
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 🟡 In Progress
+**Status**: ✅ Completed
 **Priority**: High
 
 ### 🎯 Description
@@ -258,17 +258,17 @@ Implement a UDP listener that parses Art-Net ArtDMX packets and emits DMX frames
 
 ### ✅ Checklist
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 
 ## 🎟️ Ticket T4.2: MAX485 DMX Output
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 🟡 In Progress
+**Status**: ✅ Completed
 **Priority**: High
 
 ### 🎯 Description
@@ -276,17 +276,17 @@ Send DMX512 frames over RS485 using a MAX485 transceiver.
 
 ### ✅ Checklist
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 
 ## 🎟️ Ticket T4.3: Universe Filtering
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 🟡 In Progress
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -294,17 +294,17 @@ Only process ArtDMX packets that match the configured universe.
 
 ### ✅ Checklist
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 
 ## 🎟️ Ticket T4.4: Override Modes
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 🟡 In Progress
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -312,8 +312,8 @@ Allow DMX input to override local FX modes when active.
 
 ### ✅ Checklist
 - [x] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 

@@ -17,6 +17,9 @@ FXEngine fx_engine;
 ArtNetReceiver artnet;
 DMXOutput dmx_out;
 ControllerSettings settings;
+static unsigned long last_dmx_time = 0;
+static const unsigned long DMX_TIMEOUT = 2000;
+static bool fx_overridden = false;
 
 void setup() {
     Serial.begin(115200);
@@ -35,6 +38,11 @@ void setup() {
     artnet.set_universe(settings.dmx_universe);
     artnet.on_dmx_frame([](const uint8_t *data, uint16_t len) {
         dmx_out.send_frame(data, len);
+        last_dmx_time = millis();
+        if (!fx_overridden) {
+            fx_engine.set_effect(EffectType::NONE);
+            fx_overridden = true;
+        }
     });
     web_server.begin(settings_mgr, settings);
 }
@@ -42,6 +50,14 @@ void setup() {
 void loop() {
     mesh_mgr.update();
     artnet.update();
-    fx_engine.update();
+    if (fx_overridden) {
+        if (millis() - last_dmx_time > DMX_TIMEOUT) {
+            fx_overridden = false;
+            fx_engine.set_effect(EffectType::CHASE);
+        }
+    }
+    if (!fx_overridden) {
+        fx_engine.update();
+    }
     delay(10);
 }
