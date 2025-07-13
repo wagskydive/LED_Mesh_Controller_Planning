@@ -1,6 +1,6 @@
 # LED Mesh Controller
 
-This project controls a network of LED nodes using ESP32 devices. It features a mesh networking framework, FX engine for lighting effects, Art-Net/DMX support, and a web-based control console.
+This project controls a network of LED nodes using ESP32 devices. It features a mesh networking framework, an LED manager powered by Adafruit NeoPixel, an FX engine for lighting effects, Art-Net/DMX support, and a web-based control console.
 
 The firmware stores configuration in NVS, connects to Wi-Fi with a fallback access point, and exposes a REST API via AsyncWebServer.
 
