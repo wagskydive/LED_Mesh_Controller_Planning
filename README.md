@@ -6,4 +6,6 @@ The firmware stores configuration in NVS, connects to Wi-Fi with a fallback acce
 
 DMX frames temporarily suspend the local FX engine, allowing external control sources to override animations.
 
+Scenes can be saved and recalled from the web console.
+
 See `docs/design.md` for the high-level design and `docs/planning.md` for the project milestones.

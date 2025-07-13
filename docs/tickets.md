@@ -317,3 +317,78 @@ Allow DMX input to override local FX modes when active.
 - [x] Tests Passed
 - [x] Documentation Written
 
+
+## 🎟️ Ticket T5.1: UI Layout
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Medium
+
+### 🎯 Description
+Create the basic HTML layout for the web console with scene and playback sections.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T5.2: Scene Controls
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Medium
+
+### 🎯 Description
+Implement saving and listing of scenes through a new `SceneManager` and REST endpoints.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T5.3: Playback Buttons
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Add buttons to trigger scene playback from the web console.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T5.4: Scene Save/Recall
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Allow users to save scenes to SPIFFS and recall them via the web API.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+

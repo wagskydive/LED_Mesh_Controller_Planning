@@ -12,4 +12,5 @@ The system uses ESP32 boards arranged in a mesh network to drive LED fixtures. N
 - **ArtNetReceiver**: Parses incoming Art-Net packets and produces DMX frames.
 - **DMXOutput**: Sends DMX512 data over RS485 using a MAX485 driver.
 - **DMXOverride**: Pauses FX playback whenever Art-Net DMX data is received so external controllers can take over.
+- **SceneManager**: Stores lighting scenes on SPIFFS for recall.
 - **WebConsole**: Serves an interface from SPIFFS for managing scenes and settings.
