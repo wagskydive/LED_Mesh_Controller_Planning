@@ -8,4 +8,7 @@ DMX frames temporarily suspend the local FX engine, allowing external control so
 
 Scenes can be saved and recalled from the web console.
 
+New smart features include a complementary color effect, microphone beat sync,
+and a topology viewer showing connected nodes.
+
 See `docs/design.md` for the high-level design and `docs/planning.md` for the project milestones.

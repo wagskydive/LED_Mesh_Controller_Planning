@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <esp_wifi.h>
 #include <esp_mesh.h>
+#include <algorithm>
 
 bool MeshManager::begin(bool is_root) {
     pinMode(LED_BUILTIN, OUTPUT);
@@ -13,6 +14,12 @@ bool MeshManager::begin(bool is_root) {
     esp_mesh_init();
     esp_mesh_set_config(&cfg);
     esp_mesh_start();
+
+    uint8_t mac[6];
+    esp_wifi_get_mac(WIFI_IF_STA, mac);
+    char mac_str[18];
+    sprintf(mac_str, "%02x:%02x:%02x:%02x:%02x:%02x", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    nodes.push_back(String(mac_str));
 
     // Check if this node became the root
     if (!root && esp_mesh_is_root()) {
@@ -32,6 +39,12 @@ void MeshManager::update() {
         data.data = buf;
         data.size = sizeof(buf);
         if (esp_mesh_recv(&from, &data, 0, &flag, NULL, 0) == ESP_OK) {
+            char mac_str[18];
+            sprintf(mac_str, "%02x:%02x:%02x:%02x:%02x:%02x", from.addr[0], from.addr[1], from.addr[2], from.addr[3], from.addr[4], from.addr[5]);
+            String mac = String(mac_str);
+            if (std::find(nodes.begin(), nodes.end(), mac) == nodes.end()) {
+                nodes.push_back(mac);
+            }
             String msg = String((char *)data.data);
             message_cb(msg);
         }
@@ -70,4 +83,8 @@ void MeshManager::send_message(const String &msg) {
 
 void MeshManager::on_message(std::function<void(const String&)> cb) {
     message_cb = cb;
+}
+
+const std::vector<String>& MeshManager::get_nodes() const {
+    return nodes;
 }

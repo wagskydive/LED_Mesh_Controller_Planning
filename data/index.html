@@ -17,6 +17,7 @@
         <select id="scene-effect">
             <option value="CHASE">Chase</option>
             <option value="PULSE">Pulse</option>
+            <option value="COMPLEMENTARY">Complementary</option>
             <option value="NONE">None</option>
         </select>
         <button id="save-btn">Save</button>
@@ -24,11 +25,14 @@
     <section>
         <h2>Playback</h2>
         <button id="reload-btn">Reload Scenes</button>
+        <button id="nodes-btn">Show Nodes</button>
+        <ul id="node-list"></ul>
     </section>
     <script>
     const sceneList = document.getElementById('scene-list');
     const sceneName = document.getElementById('scene-name');
     const sceneEffect = document.getElementById('scene-effect');
+    const nodeList = document.getElementById('node-list');
 
     function loadScenes() {
         fetch('/scenes').then(r => r.json()).then(data => {
@@ -62,8 +66,20 @@
         });
     }
 
+    function loadNodes() {
+        fetch('/nodes').then(r => r.json()).then(data => {
+            nodeList.innerHTML = '';
+            data.forEach(n => {
+                const li = document.createElement('li');
+                li.textContent = n;
+                nodeList.appendChild(li);
+            });
+        });
+    }
+
     document.getElementById('save-btn').addEventListener('click', saveScene);
     document.getElementById('reload-btn').addEventListener('click', loadScenes);
+    document.getElementById('nodes-btn').addEventListener('click', loadNodes);
     loadScenes();
     </script>
 </body>

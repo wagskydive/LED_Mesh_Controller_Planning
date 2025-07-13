@@ -392,3 +392,59 @@ Allow users to save scenes to SPIFFS and recall them via the web API.
 - [x] Tests Passed
 - [x] Documentation Written
 
+---
+
+## 🎟️ Ticket T6.1: Complementary Color FX
+
+**Milestone**: Smart Features
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Medium
+
+### 🎯 Description
+Create a new FXEngine effect that displays complementary color pairs across the LED strip.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T6.2: Mic Input for Beat Sync
+
+**Milestone**: Smart Features
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Medium
+
+### 🎯 Description
+Add a microphone input class and use it to trigger FXEngine effects on audio beats.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T6.3: Node Topology Viewer
+
+**Milestone**: Smart Features
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Expose the list of connected mesh nodes via a new `/nodes` API endpoint.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written

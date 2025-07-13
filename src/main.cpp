@@ -8,6 +8,7 @@
 #include "artnet_receiver.h"
 #include "dmx_output.h"
 #include "scene_manager.h"
+#include "mic_input.h"
 
 SettingsManager settings_mgr;
 WiFiManager wifi_mgr;
@@ -18,6 +19,7 @@ FXEngine fx_engine;
 ArtNetReceiver artnet;
 DMXOutput dmx_out;
 SceneManager scene_mgr;
+MicInput mic_input;
 ControllerSettings settings;
 static unsigned long last_dmx_time = 0;
 static const unsigned long DMX_TIMEOUT = 2000;
@@ -35,6 +37,7 @@ void setup() {
     mesh_mgr.begin(settings.is_root);
     led_mgr.begin(settings.led_count, 5);
     fx_engine.begin(led_mgr);
+    mic_input.begin(34);
     fx_engine.enable_auto_fx(true);
     fx_engine.set_effect(EffectType::CHASE);
     dmx_out.begin(Serial1, 17);
@@ -48,7 +51,7 @@ void setup() {
             fx_overridden = true;
         }
     });
-    web_server.begin(settings_mgr, settings, scene_mgr, fx_engine);
+    web_server.begin(settings_mgr, settings, scene_mgr, fx_engine, mesh_mgr);
 }
 
 void loop() {
@@ -61,6 +64,9 @@ void loop() {
         }
     }
     if (!fx_overridden) {
+        if (mic_input.detect_beat()) {
+            fx_engine.set_effect(EffectType::PULSE);
+        }
         fx_engine.update();
     }
     delay(10);

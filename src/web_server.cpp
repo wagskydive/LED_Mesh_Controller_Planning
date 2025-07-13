@@ -2,9 +2,10 @@
 #include <ArduinoJson.h>
 
 void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &settings,
-                      SceneManager &scene_mgr, FXEngine &fx) {
+                      SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh) {
     scenes = &scene_mgr;
     fx_engine = &fx;
+    mesh_mgr = &mesh;
     if (!SPIFFS.begin(true)) {
         return;
     }
@@ -54,6 +55,18 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
             scenes->save();
             req->send(200, "application/json", "{}");
         });
+
+    server.on("/nodes", HTTP_GET, [this](AsyncWebServerRequest *req) {
+        if (!mesh_mgr) { req->send(200, "application/json", "[]"); return; }
+        DynamicJsonDocument doc(256);
+        JsonArray arr = doc.to<JsonArray>();
+        for (auto &n : mesh_mgr->get_nodes()) {
+            arr.add(n);
+        }
+        String out;
+        serializeJson(doc, out);
+        req->send(200, "application/json", out);
+    });
 
     server.on("/play", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
         [this](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
