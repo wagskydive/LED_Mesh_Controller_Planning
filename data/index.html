@@ -11,6 +11,17 @@
 <body>
     <h1>LED Mesh Controller</h1>
     <section>
+        <h2>Settings</h2>
+        <label>Universe <input id="universe" type="number" min="1"></label><br>
+        <label>Start Channel <input id="start-channel" type="number" min="1"></label><br>
+        <label>LED Count <input id="led-count" type="number" min="1"></label><br>
+        <label>DMX Universe <input id="dmx-universe" type="number" min="1"></label><br>
+        <label><input id="is-root" type="checkbox"> Root Node</label><br>
+        <input id="ssid" placeholder="WiFi SSID"><br>
+        <input id="password" type="password" placeholder="WiFi Password"><br>
+        <button id="save-settings-btn">Save Settings</button>
+    </section>
+    <section>
         <h2>Scenes</h2>
         <ul id="scene-list"></ul>
         <input id="scene-name" placeholder="Scene name">
@@ -33,6 +44,42 @@
     const sceneName = document.getElementById('scene-name');
     const sceneEffect = document.getElementById('scene-effect');
     const nodeList = document.getElementById('node-list');
+    const universe = document.getElementById('universe');
+    const startChannel = document.getElementById('start-channel');
+    const ledCount = document.getElementById('led-count');
+    const dmxUniverse = document.getElementById('dmx-universe');
+    const isRoot = document.getElementById('is-root');
+    const ssid = document.getElementById('ssid');
+    const password = document.getElementById('password');
+
+    function loadSettings() {
+        fetch('/settings').then(r => r.json()).then(s => {
+            universe.value = s.universe;
+            startChannel.value = s.start_channel;
+            ledCount.value = s.led_count;
+            dmxUniverse.value = s.dmx_universe;
+            isRoot.checked = s.is_root;
+            ssid.value = s.ssid;
+            password.value = s.password;
+        });
+    }
+
+    function saveSettings() {
+        const body = {
+            universe: parseInt(universe.value, 10),
+            start_channel: parseInt(startChannel.value, 10),
+            led_count: parseInt(ledCount.value, 10),
+            dmx_universe: parseInt(dmxUniverse.value, 10),
+            is_root: isRoot.checked,
+            ssid: ssid.value,
+            password: password.value
+        };
+        fetch('/settings', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(body)
+        }).then(loadSettings);
+    }
 
     function loadScenes() {
         fetch('/scenes').then(r => r.json()).then(data => {
@@ -80,7 +127,9 @@
     document.getElementById('save-btn').addEventListener('click', saveScene);
     document.getElementById('reload-btn').addEventListener('click', loadScenes);
     document.getElementById('nodes-btn').addEventListener('click', loadNodes);
+    document.getElementById('save-settings-btn').addEventListener('click', saveSettings);
     loadScenes();
+    loadSettings();
     </script>
 </body>
 </html>
