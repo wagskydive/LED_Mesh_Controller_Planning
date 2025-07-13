@@ -7,7 +7,8 @@
 enum class EffectType {
     NONE,
     CHASE,
-    PULSE
+    PULSE,
+    COMPLEMENTARY
 };
 
 class FXEngine {
@@ -25,8 +26,10 @@ private:
     uint16_t chase_pos = 0;
     uint8_t pulse_val = 0;
     bool pulse_up = true;
+    uint8_t comp_hue = 0;
     void run_chase();
     void run_pulse();
+    void run_complementary();
 };
 
 #endif // FX_ENGINE_H

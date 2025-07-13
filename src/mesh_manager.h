@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <functional>
+#include <vector>
 
 #ifndef LED_BUILTIN
 #define LED_BUILTIN 2
@@ -21,6 +22,7 @@ public:
     bool is_root_node() const;
     void send_message(const String &msg);
     void on_message(std::function<void(const String&)> cb);
+    const std::vector<String>& get_nodes() const;
 
 private:
     bool root = false;
@@ -28,6 +30,7 @@ private:
     std::function<void(const String&)> message_cb = nullptr;
     unsigned long last_led_toggle = 0;
     bool led_state = false;
+    std::vector<String> nodes;
 };
 
 #endif // MESH_MANAGER_H

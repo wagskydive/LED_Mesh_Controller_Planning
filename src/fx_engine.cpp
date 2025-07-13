@@ -23,6 +23,8 @@ void FXEngine::update() {
     if (auto_fx && millis() - last_change > 5000) {
         if (current_effect == EffectType::CHASE) {
             set_effect(EffectType::PULSE);
+        } else if (current_effect == EffectType::PULSE) {
+            set_effect(EffectType::COMPLEMENTARY);
         } else {
             set_effect(EffectType::CHASE);
         }
@@ -34,6 +36,9 @@ void FXEngine::update() {
             break;
         case EffectType::PULSE:
             run_pulse();
+            break;
+        case EffectType::COMPLEMENTARY:
+            run_complementary();
             break;
         default:
             break;
@@ -67,4 +72,36 @@ void FXEngine::run_pulse() {
         if (pulse_val > 5) pulse_val -= 5; else pulse_val = 0;
         if (pulse_val == 0) pulse_up = true;
     }
+}
+
+void FXEngine::run_complementary() {
+    if (millis() - last_update < 50) return;
+    last_update = millis();
+    for (uint16_t i = 0; i < leds->count(); ++i) {
+        uint8_t hue = (i < leds->count() / 2) ? comp_hue : (uint8_t)(comp_hue + 128);
+        uint8_t r, g, b;
+        // simple HSV to RGB conversion
+        uint8_t region = hue / 43;
+        uint8_t remainder = (hue - (region * 43)) * 6;
+        uint8_t p = 0;
+        uint8_t q = (255 * (255 - remainder)) / 255;
+        uint8_t t = (255 * remainder) / 255;
+        switch(region) {
+            case 0:
+                r = 255; g = t; b = p; break;
+            case 1:
+                r = q; g = 255; b = p; break;
+            case 2:
+                r = p; g = 255; b = t; break;
+            case 3:
+                r = p; g = q; b = 255; break;
+            case 4:
+                r = t; g = p; b = 255; break;
+            default:
+                r = 255; g = p; b = q; break;
+        }
+        leds->set_pixel(i, r, g, b);
+    }
+    leds->show();
+    comp_hue++;
 }
