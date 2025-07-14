@@ -8,7 +8,9 @@ The system uses ESP32 boards arranged in a mesh network to drive LED fixtures. N
 - **WiFiManager**: Connects to configured network or starts an access point.
 - **WebServer**: Provides REST API and serves the web console.
 - **LEDManager**: Wraps Adafruit_NeoPixel to drive the LED strip.
-- **FXEngine**: Generates lighting effects for connected LEDs.
+ - **FXEngine**: Generates lighting effects for connected LEDs. Effects include
+   chase, pulse, static, wipe, bounce, color cycle and complementary modes. The
+   engine can cycle automatically through effects.
 - **ArtNetReceiver**: Parses incoming Art-Net packets and produces DMX frames.
 - **DMXOutput**: Sends DMX512 data over RS485 using a MAX485 driver.
 - **DMXOverride**: Pauses FX playback whenever Art-Net DMX data is received so external controllers can take over.

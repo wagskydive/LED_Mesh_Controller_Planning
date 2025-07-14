@@ -765,18 +765,18 @@ Provide an API endpoint to list nearby Wi-Fi networks so users can select an SSI
 
 **Milestone**: Project Bootstrap
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
 Set up GitHub Actions or PlatformIO to verify firmware builds on every push.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 ## 🎟️ Ticket T0.3: Enforce Code Format Hooks
@@ -873,54 +873,54 @@ Push node status updates over WebSocket `/ws` every 500 ms.
 
 **Milestone**: FX Engine & AutoFX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
 Implement Static, Wipe, Bounce and ColorCycle effects in the FXEngine.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 ## 🎟️ Ticket T3.6: Color-Harmony Generator
 
 **Milestone**: FX Engine & AutoFX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
 Generate complementary colors from HSL values for automatic FX modes.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 ## 🎟️ Ticket T3.7: AutoFX Speed Control API
 
 **Milestone**: FX Engine & AutoFX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
 Expose `/api/auto` endpoint to enable or disable AutoFX with an adjustable speed parameter.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 ## 🎟️ Ticket T3.8: Color Conversion Tests
