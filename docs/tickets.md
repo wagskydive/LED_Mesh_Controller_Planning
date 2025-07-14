@@ -606,3 +606,24 @@ Abort `build_image.sh` when run with `sudo` and instruct the user to execute it 
 - [x] Tests Passed
 - [x] Documentation Written
 
+---
+
+## 🎟️ Ticket T8.8: Apt Instructions for python3-venv
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Add explicit `apt` commands for installing `python3-venv` when the build script
+fails to create its virtual environment.
+Update `build_image.sh` and the README with these instructions.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+

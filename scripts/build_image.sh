@@ -19,6 +19,7 @@ fi
 if [ ! -f "$VENV_DIR/bin/activate" ]; then
   echo "Error: virtual environment not found in $VENV_DIR" >&2
   echo "Install the python3-venv package and rerun this script." >&2
+  echo "On Debian/Ubuntu run: sudo apt update && sudo apt install python3-venv" >&2
   exit 1
 fi
 source "$VENV_DIR/bin/activate"
