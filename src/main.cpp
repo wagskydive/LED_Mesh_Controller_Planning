@@ -1,14 +1,15 @@
 #include <Arduino.h>
-#include "settings_manager.h"
-#include "wifi_manager.h"
-#include "web_server.h"
-#include "mesh_manager.h"
-#include "led_manager.h"
-#include "fx_engine.h"
+
 #include "artnet_receiver.h"
 #include "dmx_output.h"
-#include "scene_manager.h"
+#include "fx_engine.h"
+#include "led_manager.h"
+#include "mesh_manager.h"
 #include "mic_input.h"
+#include "scene_manager.h"
+#include "settings_manager.h"
+#include "web_server.h"
+#include "wifi_manager.h"
 
 SettingsManager settings_mgr;
 WiFiManager wifi_mgr;
@@ -48,7 +49,17 @@ void setup() {
     artnet.begin();
     artnet.set_universe(settings.dmx_universe);
     artnet.on_dmx_frame([](const uint8_t *data, uint16_t len) {
-        dmx_out.send_frame(data, len);
+        if (settings.enable_dmx) {
+            dmx_out.send_frame(data, len);
+        }
+        uint16_t start = settings.start_channel - 1;
+        for (uint16_t i = 0; i < led_mgr.count(); ++i) {
+            uint16_t idx = start + i * 3;
+            if (idx + 2 < len) {
+                led_mgr.set_pixel(i, data[idx], data[idx + 1], data[idx + 2]);
+            }
+        }
+        led_mgr.show();
         last_dmx_time = millis();
         if (!fx_overridden) {
             fx_engine.set_effect(EffectType::NONE);
@@ -73,5 +84,6 @@ void loop() {
         }
         fx_engine.update();
     }
+    web_server.update();
     delay(10);
 }

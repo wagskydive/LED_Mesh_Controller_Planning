@@ -12,6 +12,7 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
     fx_engine = &fx;
     mesh_mgr = &mesh;
     wifi_mgr = &wifi;
+    server.addHandler(&ws);
 
     bool spiffs_ok = SPIFFS.begin(true);
     if (!spiffs_ok) {
@@ -166,4 +167,21 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
                   [](AsyncWebServerRequest *req) { req->send_P(200, "text/html", DEFAULT_INDEX); });
     }
     server.begin();
+}
+
+void WebServer::update() {
+    ws.cleanupClients();
+    if (!mesh_mgr) return;
+    if (millis() - last_ws < 500) return;
+    last_ws = millis();
+    if (ws.count() == 0) return;
+    DynamicJsonDocument doc(256);
+    doc["is_root"] = mesh_mgr->is_root_node();
+    JsonArray arr = doc.createNestedArray("nodes");
+    for (auto &n : mesh_mgr->get_nodes()) {
+        arr.add(n);
+    }
+    String out;
+    serializeJson(doc, out);
+    ws.textAll(out);
 }

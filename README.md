@@ -12,6 +12,8 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 - Optional microphone beat detection and node topology viewer
 - Adjust AutoFX cycling via `/api/auto` endpoint
 - HTTP server starts even if SPIFFS fails and serves a fallback page
+- WebSocket `/ws` pushes node status updates every 500&nbsp;ms
+- DMX output can be disabled via the settings page
 - Settings API exposes the saved Wi-Fi password
 - `/wifi_scan` endpoint lists available networks
 - Web console allows entering Wi-Fi credentials and restarting the device

@@ -14,6 +14,7 @@ The LED Mesh Controller firmware coordinates multiple ESP32 nodes in a mesh netw
 - **FXEngine** – runs chase, pulse, static, wipe, bounce, color cycle and complementary effects with optional AutoFX mode.
 - **ArtNetReceiver** – listens for Art-Net packets and forwards DMX frames.
 - **DMXOutput** – transmits DMX512 data over RS485 via a MAX485 driver.
+- **WebSocket** – pushes `/status` updates to the console every 500 ms.
 - **SceneManager** – saves and loads scene presets on SPIFFS.
 - **MicInput** – detects beats from a microphone input pin.
 - **Topology API** – `/status` lists mesh nodes and whether this device is the root.
@@ -29,6 +30,8 @@ Enable **Extend Network** in the settings panel to enter Wi-Fi credentials. The
 password is included in the JSON returned by `/settings` so the form can be
 pre-filled. Press **Restart** after saving to reconnect. Use the `/wifi_scan`
 endpoint to list nearby networks when choosing an SSID.
+
+DMX output can be disabled through the **Enable DMX Output** checkbox.
 
 ## Smart Features
 
