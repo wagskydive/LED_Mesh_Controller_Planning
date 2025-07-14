@@ -14,3 +14,5 @@ bool MicInput::detect_beat() {
     }
     return false;
 }
+
+uint16_t MicInput::read_level() { return analogRead(mic_pin); }

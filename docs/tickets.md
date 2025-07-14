@@ -1356,6 +1356,7 @@ Check for brown-outs and monitor heap usage during long runs.
 Write Quick Start, wiring guide and UI walkthrough documentation.
 
 ### ✅ Checklist
+
 - [x] Started
 - [x] Tests Written
 - [x] Code Written
@@ -1460,7 +1461,7 @@ Add final badges and screenshots to the README before release.
 
 **Milestone**: Post v1.0 Backlog
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: 🚧 In Progress
 **Priority**: Low
 
 ### 🎯 Description
@@ -1469,11 +1470,11 @@ Use microphone input to drive lighting effects in sync with music.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 

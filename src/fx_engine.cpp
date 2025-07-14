@@ -1,9 +1,10 @@
 #include "fx_engine.h"
+
 #include "color_utils.h"
 
-void FXEngine::begin(LEDManager &manager) {
-    leds = &manager;
-}
+void FXEngine::begin(LEDManager &manager) { leds = &manager; }
+
+void FXEngine::attach_mic(MicInput &mic) { mic_in = &mic; }
 
 void FXEngine::set_effect(EffectType type) {
     current_effect = type;
@@ -12,6 +13,8 @@ void FXEngine::set_effect(EffectType type) {
         leds->clear();
     }
 }
+
+EffectType FXEngine::get_effect() const { return current_effect; }
 
 void FXEngine::enable_auto_fx(bool enable, unsigned long interval_ms) {
     auto_fx = enable;
@@ -42,6 +45,9 @@ void FXEngine::update() {
             case EffectType::COLOR_CYCLE:
                 set_effect(EffectType::COMPLEMENTARY);
                 break;
+            case EffectType::COMPLEMENTARY:
+                set_effect(EffectType::AUDIO_REACTIVE);
+                break;
             default:
                 set_effect(EffectType::CHASE);
                 break;
@@ -69,6 +75,9 @@ void FXEngine::update() {
             break;
         case EffectType::COMPLEMENTARY:
             run_complementary();
+            break;
+        case EffectType::AUDIO_REACTIVE:
+            run_audio_reactive();
             break;
         default:
             break;
@@ -99,7 +108,10 @@ void FXEngine::run_pulse() {
             pulse_up = false;
         }
     } else {
-        if (pulse_val > 5) pulse_val -= 5; else pulse_val = 0;
+        if (pulse_val > 5)
+            pulse_val -= 5;
+        else
+            pulse_val = 0;
         if (pulse_val == 0) pulse_up = true;
     }
 }
@@ -151,13 +163,37 @@ void FXEngine::run_color_cycle() {
         uint8_t q = (255 * (255 - remainder)) / 255;
         uint8_t t = (255 * remainder) / 255;
         uint8_t r, g, b;
-        switch(region) {
-            case 0: r = 255; g = t; b = p; break;
-            case 1: r = q; g = 255; b = p; break;
-            case 2: r = p; g = 255; b = t; break;
-            case 3: r = p; g = q; b = 255; break;
-            case 4: r = t; g = p; b = 255; break;
-            default: r = 255; g = p; b = q; break;
+        switch (region) {
+            case 0:
+                r = 255;
+                g = t;
+                b = p;
+                break;
+            case 1:
+                r = q;
+                g = 255;
+                b = p;
+                break;
+            case 2:
+                r = p;
+                g = 255;
+                b = t;
+                break;
+            case 3:
+                r = p;
+                g = q;
+                b = 255;
+                break;
+            case 4:
+                r = t;
+                g = p;
+                b = 255;
+                break;
+            default:
+                r = 255;
+                g = p;
+                b = q;
+                break;
         }
         leds->set_pixel(i, r, g, b);
     }
@@ -175,4 +211,16 @@ void FXEngine::run_complementary() {
     }
     leds->show();
     comp_hue++;
+}
+
+void FXEngine::run_audio_reactive() {
+    if (!mic_in) return;
+    if (millis() - last_update < 30) return;
+    last_update = millis();
+    uint16_t level = mic_in->read_level();
+    uint8_t brightness = map(level, 0, 4095, 0, 255);
+    for (uint16_t i = 0; i < leds->count(); ++i) {
+        leds->set_pixel(i, brightness, 0, brightness);
+    }
+    leds->show();
 }

@@ -18,7 +18,7 @@ h1 {
   background: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .section h2 {
@@ -74,15 +74,15 @@ h1 {
 
 .effect-chase {
   background: linear-gradient(
-      90deg,
-      #ff0000 0%,
-      #ff0000 25%,
-      #000 25%,
-      #000 50%,
-      #00ff00 50%,
-      #00ff00 75%,
-      #000 75%
-    );
+    90deg,
+    #ff0000 0%,
+    #ff0000 25%,
+    #000 25%,
+    #000 50%,
+    #00ff00 50%,
+    #00ff00 75%,
+    #000 75%
+  );
   background-size: 80px 40px;
   animation: chase 1s linear infinite;
 }
@@ -114,6 +114,11 @@ h1 {
 .effect-complementary {
   background: linear-gradient(45deg, #ff0000, #00ff00);
   animation: colorcycle 2s linear infinite;
+}
+
+.effect-audio-reactive {
+  background: linear-gradient(90deg, #6600ff, #ff00cc);
+  animation: pulse 0.5s ease-in-out infinite;
 }
 
 .effect-none {

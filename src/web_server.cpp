@@ -116,6 +116,8 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
                     fx_engine->set_effect(EffectType::CHASE);
                 else if (sc->effect == "PULSE")
                     fx_engine->set_effect(EffectType::PULSE);
+                else if (sc->effect == "AUDIO_REACTIVE")
+                    fx_engine->set_effect(EffectType::AUDIO_REACTIVE);
                 else
                     fx_engine->set_effect(EffectType::NONE);
             }
