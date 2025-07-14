@@ -2,12 +2,15 @@
 #include <ArduinoJson.h>
 #include "default_index.h"
 #include <Arduino.h>
+#include "wifi_manager.h"
 
 void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &settings,
-                      SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh) {
+                      SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh,
+                      WiFiManager &wifi) {
     scenes = &scene_mgr;
     fx_engine = &fx;
     mesh_mgr = &mesh;
+    wifi_mgr = &wifi;
 
     bool spiffs_ok = SPIFFS.begin(true);
     if (!spiffs_ok) {
@@ -97,6 +100,16 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
         req->send(200, "text/plain", "restarting");
         delay(100);
         ESP.restart();
+    });
+
+    server.on("/wifi_scan", HTTP_GET, [this](AsyncWebServerRequest *req) {
+        if (!this->wifi_mgr) { req->send(200, "application/json", "[]"); return; }
+        auto list = this->wifi_mgr->scan_networks();
+        DynamicJsonDocument doc(256);
+        JsonArray arr = doc.to<JsonArray>();
+        for (auto &s : list) { arr.add(s); }
+        String out; serializeJson(doc, out);
+        req->send(200, "application/json", out);
     });
 
     if (spiffs_ok && SPIFFS.exists("/index.html")) {

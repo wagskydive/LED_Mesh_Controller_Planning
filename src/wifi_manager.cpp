@@ -24,3 +24,14 @@ void WiFiManager::start_ap() {
     WiFi.mode(WIFI_AP);
     WiFi.softAP("LEDMesh", "meshpass");
 }
+
+std::vector<String> WiFiManager::scan_networks() {
+    WiFi.mode(WIFI_STA);
+    int n = WiFi.scanNetworks();
+    std::vector<String> ssids;
+    for (int i = 0; i < n; ++i) {
+        ssids.push_back(WiFi.SSID(i));
+    }
+    WiFi.scanDelete();
+    return ssids;
+}
