@@ -763,7 +763,7 @@ informs the user to upload the web console via `pio run --target uploadfs`.
 
 **Milestone**: Web-Based Pro Console
 **Created by**: assistant
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -773,10 +773,10 @@ Allow the HTTP server to start even when SPIFFS fails to mount and return the st
 ### ✅ Checklist
 
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
 - [x] Tests Passed
-- [ ] Documentation Written
+- [x] Documentation Written
 
 ---
 
@@ -784,7 +784,7 @@ Allow the HTTP server to start even when SPIFFS fails to mount and return the st
 
 **Milestone**: Build Tools
 **Created by**: assistant
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -794,17 +794,17 @@ Extend `build_image.sh` to generate `spiffs.bin` and merge all binaries into
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ## 🎟️ Ticket T5.7: WiFi Credentials Save & Restart
 
 **Milestone**: Web-Based Pro Console
 **Created by**: assistant
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -814,16 +814,16 @@ Allow entering Wi-Fi credentials from the web console with an "Extend Network" o
 ### ✅ Checklist
 
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
 - [x] Tests Passed
-- [ ] Documentation Written
+- [x] Documentation Written
 
 ## 🎟️ Ticket T5.8: WiFi Network Scan API
 
 **Milestone**: Web-Based Pro Console
 **Created by**: assistant
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -833,10 +833,10 @@ Provide an API endpoint to list nearby Wi-Fi networks so users can select an SSI
 ### ✅ Checklist
 
 - [x] Started
-- [ ] Tests Written
+- [x] Tests Written
 - [x] Code Written
 - [x] Tests Passed
-- [ ] Documentation Written
+- [x] Documentation Written
 
 ---
 
