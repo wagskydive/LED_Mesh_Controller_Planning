@@ -586,3 +586,23 @@ for the `activate` script and guiding the user if creation fails.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.7: Detect Sudo Usage in Build Script
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Abort `build_image.sh` when run with `sudo` and instruct the user to execute it as a regular account.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
