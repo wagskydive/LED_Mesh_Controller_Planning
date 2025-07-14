@@ -524,3 +524,24 @@ Document that the firmware only supports ESP32 boards. Add a compile guard in th
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.4: Fix Build Script Line Endings
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Users reported `bash\r: No such file or directory` when running
+`build_image.sh`. Update the shebang to use the `env -S` syntax and document
+converting the script to Unix line endings in the README.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written

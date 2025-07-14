@@ -17,8 +17,17 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 4. Flash the firmware with `pio run --target upload`.
 
 ### Build Script
-Run `scripts/build_image.sh` to automatically set up PlatformIO and generate the
-final ESP32 image files. The binaries will be placed in the `images/` folder.
+The `scripts/build_image.sh` helper installs PlatformIO (if missing) and
+generates firmware binaries. Run it from the project root:
+
+```bash
+chmod +x scripts/build_image.sh
+./scripts/build_image.sh
+```
+
+If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
+script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
+command. The resulting files appear in the `images/` directory.
 
 ### Arduino CLI
 An optional helper script is provided for those using the Arduino IDE or
