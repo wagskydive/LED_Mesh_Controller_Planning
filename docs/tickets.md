@@ -667,3 +667,23 @@ firmware images.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T5.5: Fallback Web Console Page
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Serve a minimal HTML page when `/index.html` is missing from SPIFFS. The page
+informs the user to upload the web console via `pio run --target uploadfs`.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
