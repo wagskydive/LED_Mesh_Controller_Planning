@@ -25,6 +25,27 @@ Set up the development environment so that the project can be managed, versioned
 
 ---
 
+## 🎟️ Ticket T8.5: Handle PEP 668 Python Environments
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+`build_image.sh` fails on systems where Python enforces the
+"externally-managed-environment" policy. Update the script to use a local
+virtual environment and document the fix in the README.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
 ## 🎟️ Ticket T3.1: Integrate NeoPixel
 
 **Milestone**: FX Engine and LED Control
