@@ -133,7 +133,6 @@ function loadNodes() {
 
 document.getElementById('save-btn')?.addEventListener('click', saveScene);
 document.getElementById('reload-btn')?.addEventListener('click', loadScenes);
-document.getElementById('nodes-btn')?.addEventListener('click', loadNodes);
 document
   .getElementById('save-settings-btn')
   ?.addEventListener('click', saveSettings);
@@ -143,7 +142,27 @@ restartBtn.addEventListener('click', () => {
   fetch('/restart', { method: 'POST' });
 });
 
+let ws: WebSocket | null = null;
+
+function connectWebSocket() {
+  ws = new WebSocket(`ws://${location.host}/ws`);
+  ws.onmessage = (ev) => {
+    const data = JSON.parse(ev.data) as { nodes: string[]; is_root: boolean };
+    nodeList.innerHTML = '';
+    rootStatus.textContent = data.is_root ? 'Root node' : 'Mesh node';
+    data.nodes.forEach((n) => {
+      const li = document.createElement('li');
+      li.textContent = n;
+      nodeList.appendChild(li);
+    });
+  };
+  ws.onclose = () => {
+    setTimeout(connectWebSocket, 1000);
+  };
+}
+
 toggleWifi();
 
 loadScenes();
 loadSettings();
+connectWebSocket();
