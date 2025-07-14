@@ -30,7 +30,13 @@ project root to isolate PlatformIO.
 
 If `pip` reports an "externally-managed-environment" error or the script
 cannot create the virtual environment, install the `python3-venv` package and
-rerun the command. The helper creates the `.venv` directory automatically.
+rerun the command. On Debian/Ubuntu run:
+
+```bash
+sudo apt update && sudo apt install python3-venv
+```
+
+The helper creates the `.venv` directory automatically.
 
 If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
 script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
