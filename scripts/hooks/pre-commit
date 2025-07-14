@@ -1,0 +1,11 @@
+#!/bin/sh
+FILES=$(git diff --cached --name-only --diff-filter=ACM | tr '\n' ' ')
+if [ -z "$FILES" ]; then
+  exit 0
+fi
+
+echo "$FILES" | xargs -r clang-format -i --style=file
+
+echo "$FILES" | xargs -r prettier --write >/dev/null
+
+git add $FILES

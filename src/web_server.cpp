@@ -1,12 +1,13 @@
 #include "web_server.h"
-#include <ArduinoJson.h>
-#include "default_index.h"
+
 #include <Arduino.h>
+#include <ArduinoJson.h>
+
+#include "default_index.h"
 #include "wifi_manager.h"
 
 void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &settings,
-                      SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh,
-                      WiFiManager &wifi) {
+                      SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh, WiFiManager &wifi) {
     scenes = &scene_mgr;
     fx_engine = &fx;
     mesh_mgr = &mesh;
@@ -22,9 +23,11 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
         req->send(200, "application/json", json);
     });
 
-    server.on("/settings", HTTP_POST, [&settings_mgr, &settings](AsyncWebServerRequest *req) {}, NULL,
-        [&settings_mgr, &settings](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
-            String body = String((const char*)data, len);
+    server.on(
+        "/settings", HTTP_POST, [&settings_mgr, &settings](AsyncWebServerRequest *req) {}, NULL,
+        [&settings_mgr, &settings](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t,
+                                   size_t) {
+            String body = String((const char *)data, len);
             settings_mgr.from_json(body, settings);
             settings_mgr.save(settings);
             req->send(200, "application/json", settings_mgr.to_json(settings));
@@ -44,7 +47,8 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
         req->send(200, "application/json", out);
     });
 
-    server.on("/scenes", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
+    server.on(
+        "/scenes", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
         [this](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
             DynamicJsonDocument doc(512);
             if (deserializeJson(doc, data, len)) {
@@ -64,7 +68,10 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
         });
 
     server.on("/nodes", HTTP_GET, [this](AsyncWebServerRequest *req) {
-        if (!mesh_mgr) { req->send(200, "application/json", "[]"); return; }
+        if (!mesh_mgr) {
+            req->send(200, "application/json", "[]");
+            return;
+        }
         DynamicJsonDocument doc(256);
         JsonArray arr = doc.to<JsonArray>();
         for (auto &n : mesh_mgr->get_nodes()) {
@@ -75,7 +82,22 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
         req->send(200, "application/json", out);
     });
 
-    server.on("/play", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
+    server.on("/status", HTTP_GET, [this](AsyncWebServerRequest *req) {
+        DynamicJsonDocument doc(256);
+        JsonArray arr = doc.createNestedArray("nodes");
+        if (mesh_mgr) {
+            for (auto &n : mesh_mgr->get_nodes()) {
+                arr.add(n);
+            }
+            doc["is_root"] = mesh_mgr->is_root_node();
+        }
+        String out;
+        serializeJson(doc, out);
+        req->send(200, "application/json", out);
+    });
+
+    server.on(
+        "/play", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
         [this](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
             DynamicJsonDocument doc(64);
             if (deserializeJson(doc, data, len)) {
@@ -89,14 +111,18 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
                 return;
             }
             if (fx_engine) {
-                if (sc->effect == "CHASE") fx_engine->set_effect(EffectType::CHASE);
-                else if (sc->effect == "PULSE") fx_engine->set_effect(EffectType::PULSE);
-                else fx_engine->set_effect(EffectType::NONE);
+                if (sc->effect == "CHASE")
+                    fx_engine->set_effect(EffectType::CHASE);
+                else if (sc->effect == "PULSE")
+                    fx_engine->set_effect(EffectType::PULSE);
+                else
+                    fx_engine->set_effect(EffectType::NONE);
             }
             req->send(200, "application/json", "{}");
         });
 
-    server.on("/api/auto", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
+    server.on(
+        "/api/auto", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
         [this](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
             DynamicJsonDocument doc(64);
             if (deserializeJson(doc, data, len)) {
@@ -118,21 +144,26 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
     });
 
     server.on("/wifi_scan", HTTP_GET, [this](AsyncWebServerRequest *req) {
-        if (!this->wifi_mgr) { req->send(200, "application/json", "[]"); return; }
+        if (!this->wifi_mgr) {
+            req->send(200, "application/json", "[]");
+            return;
+        }
         auto list = this->wifi_mgr->scan_networks();
         DynamicJsonDocument doc(256);
         JsonArray arr = doc.to<JsonArray>();
-        for (auto &s : list) { arr.add(s); }
-        String out; serializeJson(doc, out);
+        for (auto &s : list) {
+            arr.add(s);
+        }
+        String out;
+        serializeJson(doc, out);
         req->send(200, "application/json", out);
     });
 
     if (spiffs_ok && SPIFFS.exists("/index.html")) {
         server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
     } else {
-        server.on("/", HTTP_GET, [](AsyncWebServerRequest *req) {
-            req->send_P(200, "text/html", DEFAULT_INDEX);
-        });
+        server.on("/", HTTP_GET,
+                  [](AsyncWebServerRequest *req) { req->send_P(200, "text/html", DEFAULT_INDEX); });
     }
     server.begin();
 }

@@ -1,47 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>LED Mesh Controller</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <h1>LED Mesh Controller</h1>
     <div class="container">
-        <section class="section settings">
-            <h2>Settings</h2>
-            <label>Universe <input id="universe" type="number" min="1"></label><br>
-            <label>Start Channel <input id="start-channel" type="number" min="1"></label><br>
-            <label>LED Count <input id="led-count" type="number" min="1"></label><br>
-            <label>DMX Universe <input id="dmx-universe" type="number" min="1"></label><br>
-            <label><input id="is-root" type="checkbox"> Root Node</label><br>
-            <label><input id="extend-network" type="checkbox"> Extend Network</label><br>
-            <div id="wifi-credentials">
-                <input id="ssid" placeholder="WiFi SSID"><br>
-                <input id="password" type="password" placeholder="WiFi Password"><br>
-                <button id="restart-btn" class="button">Restart</button>
-            </div>
-            <button id="save-settings-btn" class="button">Save Settings</button>
-        </section>
-        <section class="section scenes">
-            <h2>Scenes</h2>
-            <ul id="scene-list" class="scene-list"></ul>
-            <input id="scene-name" placeholder="Scene name">
-            <select id="scene-effect">
-                <option value="CHASE">Chase</option>
-                <option value="PULSE">Pulse</option>
-                <option value="COMPLEMENTARY">Complementary</option>
-                <option value="NONE">None</option>
-            </select>
-            <button id="save-btn" class="button">Save</button>
-        </section>
-        <section class="section playback">
-            <h2>Playback</h2>
-            <button id="reload-btn" class="button">Reload Scenes</button>
-            <button id="nodes-btn" class="button">Show Nodes</button>
-            <ul id="node-list" class="node-list"></ul>
-        </section>
+      <section class="section settings">
+        <h2>Settings</h2>
+        <label>Universe <input id="universe" type="number" min="1" /></label
+        ><br />
+        <label
+          >Start Channel
+          <input id="start-channel" type="number" min="1" /></label
+        ><br />
+        <label>LED Count <input id="led-count" type="number" min="1" /></label
+        ><br />
+        <label
+          >DMX Universe <input id="dmx-universe" type="number" min="1" /></label
+        ><br />
+        <label><input id="is-root" type="checkbox" /> Root Node</label><br />
+        <label
+          ><input id="extend-network" type="checkbox" /> Extend Network</label
+        ><br />
+        <div id="wifi-credentials">
+          <input id="ssid" placeholder="WiFi SSID" /><br />
+          <input
+            id="password"
+            type="password"
+            placeholder="WiFi Password"
+          /><br />
+          <button id="restart-btn" class="button">Restart</button>
+        </div>
+        <button id="save-settings-btn" class="button">Save Settings</button>
+      </section>
+      <section class="section scenes">
+        <h2>Scenes</h2>
+        <ul id="scene-list" class="scene-list"></ul>
+        <input id="scene-name" placeholder="Scene name" />
+        <select id="scene-effect">
+          <option value="CHASE">Chase</option>
+          <option value="PULSE">Pulse</option>
+          <option value="COMPLEMENTARY">Complementary</option>
+          <option value="NONE">None</option>
+        </select>
+        <button id="save-btn" class="button">Save</button>
+      </section>
+      <section class="section playback">
+        <h2>Playback</h2>
+        <button id="reload-btn" class="button">Reload Scenes</button>
+        <button id="nodes-btn" class="button">Show Nodes</button>
+        <p id="root-status"></p>
+        <ul id="node-list" class="node-list"></ul>
+      </section>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
