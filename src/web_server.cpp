@@ -96,6 +96,21 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
             req->send(200, "application/json", "{}");
         });
 
+    server.on("/api/auto", HTTP_POST, [this](AsyncWebServerRequest *req) {}, NULL,
+        [this](AsyncWebServerRequest *req, uint8_t *data, size_t len, size_t, size_t) {
+            DynamicJsonDocument doc(64);
+            if (deserializeJson(doc, data, len)) {
+                req->send(400, "application/json", "{}");
+                return;
+            }
+            bool enable = doc["enable"].as<bool>();
+            uint32_t speed = doc["speed"].as<uint32_t>();
+            if (fx_engine) {
+                fx_engine->enable_auto_fx(enable, speed);
+            }
+            req->send(200, "application/json", "{}");
+        });
+
     server.on("/restart", HTTP_POST, [](AsyncWebServerRequest *req) {
         req->send(200, "text/plain", "restarting");
         delay(100);

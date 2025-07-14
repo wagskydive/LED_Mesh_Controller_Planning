@@ -9,7 +9,7 @@ The LED Mesh Controller firmware coordinates multiple ESP32 nodes in a mesh netw
 - **WiFiManager** – connects to a configured access point or starts a fallback AP if none is available.
 - **WebServer** – serves the REST API and static web console from SPIFFS.
 - **LEDManager** – wraps Adafruit NeoPixel for low level LED control.
-- **FXEngine** – runs chase, pulse and complementary color effects with optional AutoFX mode.
+ - **FXEngine** – runs chase, pulse, static, wipe, bounce, color cycle and complementary effects with optional AutoFX mode.
 - **ArtNetReceiver** – listens for Art-Net packets and forwards DMX frames.
 - **DMXOutput** – transmits DMX512 data over RS485 via a MAX485 driver.
 - **SceneManager** – saves and loads scene presets on SPIFFS.

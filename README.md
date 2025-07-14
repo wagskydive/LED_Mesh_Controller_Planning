@@ -5,10 +5,11 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 ## Features
 - Mesh networking with automatic root election
 - REST API and web console for settings and scene playback
-- FX engine with chase, pulse and complementary modes
+ - FX engine with chase, pulse, static, wipe, bounce, color cycle and complementary modes
 - Art-Net receiver and DMX512 output with override handling
 - Scene storage on SPIFFS
 - Optional microphone beat detection and node topology viewer
+- Adjust AutoFX cycling via `/api/auto` endpoint
 
 ## Getting Started
 1. Install [PlatformIO](https://platformio.org/).
