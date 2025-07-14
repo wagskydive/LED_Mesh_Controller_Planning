@@ -35,6 +35,7 @@ String SettingsManager::to_json(const ControllerSettings &settings) {
     doc["mode"] = settings.mode;
     doc["is_root"] = settings.is_root;
     doc["ssid"] = settings.ssid;
+    doc["password"] = settings.password;
     String output;
     serializeJson(doc, output);
     return output;

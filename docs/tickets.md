@@ -687,3 +687,22 @@ informs the user to upload the web console via `pio run --target uploadfs`.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T5.6: SPIFFS Fallback & Password JSON
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: 🚧 In Progress
+**Priority**: Medium
+
+### 🎯 Description
+Allow the HTTP server to start even when SPIFFS fails to mount and return the stored Wi-Fi password in the settings API.
+
+### ✅ Checklist
+- [x] Started
+- [ ] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [ ] Documentation Written
