@@ -14,7 +14,7 @@ fi
 VENV_DIR="$ROOT_DIR/.venv"
 if [ ! -d "$VENV_DIR" ]; then
   echo "Creating Python virtual environment..."
-  python3 -m venv "$VENV_DIR"
+  sudo python3 -m venv "$VENV_DIR"
 fi
 if [ ! -f "$VENV_DIR/bin/activate" ]; then
   echo "Error: virtual environment not found in $VENV_DIR" >&2
