@@ -11,14 +11,18 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 - Scene storage on SPIFFS
 - Optional microphone beat detection and node topology viewer
 - Adjust AutoFX cycling via `/api/auto` endpoint
+- HTTP server starts even if SPIFFS fails and serves a fallback page
+- Settings API exposes the saved Wi-Fi password
+- `/wifi_scan` endpoint lists available networks
+- Web console allows entering Wi-Fi credentials and restarting the device
 
 ## Getting Started
 
 1. Install [PlatformIO](https://platformio.org/).
 2. Run `pio run` to build the firmware.
 3. Upload the web console with `pio run --target uploadfs`.
-   If this step is skipped, the device serves a fallback page instructing you to
-   upload the files.
+   If this step is skipped or SPIFFS fails to mount, the device starts the
+   server and serves a fallback page instructing you to upload the files.
 4. Flash the firmware with `pio run --target upload`.
 
 ### Build Script
@@ -31,6 +35,17 @@ artifacts into `combined.bin`. Run it from the project root:
 chmod +x scripts/build_image.sh
 ./scripts/build_image.sh
 ```
+
+### Network Configuration
+
+Open the device's IP in a browser to access the web console. Enable
+**Extend Network** in the Settings section to reveal SSID and password
+fields. After saving the credentials press **Restart** so the firmware
+tries to join the specified Wi-Fi. If connection fails after several
+attempts it falls back to AP mode.
+
+Use the `/wifi_scan` endpoint to retrieve a JSON list of nearby networks
+when choosing an SSID.
 
 ### Git Hooks
 

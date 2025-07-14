@@ -20,7 +20,15 @@ The LED Mesh Controller firmware coordinates multiple ESP32 nodes in a mesh netw
 
 ## Web Console
 
-The web UI served from `/data/index.html` allows editing settings, saving scenes and triggering playback. A node list displays all detected mesh nodes.
+The web UI served from `/data/index.html` allows editing settings, saving scenes
+and triggering playback. A node list displays all detected mesh nodes. If the
+SPIFFS partition fails to mount or the files are missing the firmware serves a
+minimal fallback page so the console can be uploaded later.
+
+Enable **Extend Network** in the settings panel to enter Wi-Fi credentials. The
+password is included in the JSON returned by `/settings` so the form can be
+pre-filled. Press **Restart** after saving to reconnect. Use the `/wifi_scan`
+endpoint to list nearby networks when choosing an SSID.
 
 ## Smart Features
 
