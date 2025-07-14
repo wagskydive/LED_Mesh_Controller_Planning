@@ -36,7 +36,20 @@ rerun the command. On Debian/Ubuntu run:
 sudo apt update && sudo apt install python3-venv
 ```
 
-The helper creates the `.venv` directory automatically.
+
+The helper creates the `.venv` directory automatically. If you see
+```
+ERROR: Could not install packages due to an OSError: [Errno 13] Permission denied
+```
+or `Invalid value for '-d' / '--project-dir': Path ... is not writable`, fix the
+directory ownership:
+
+```bash
+sudo chown -R $(whoami):$(whoami) /path/to/LED_Mesh_Controller_Planning
+```
+Then rerun the script.
+
+If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
 
 If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
 script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
