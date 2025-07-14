@@ -1,8 +1,8 @@
 #ifndef SETTINGS_MANAGER_H
 #define SETTINGS_MANAGER_H
 
-#include <Preferences.h>
 #include <ArduinoJson.h>
+#include <Preferences.h>
 
 struct ControllerSettings {
     uint16_t universe = 1;
@@ -12,19 +12,21 @@ struct ControllerSettings {
     uint8_t mode = 0;
     bool is_root = false;
     bool extend_network = false;
+    bool enable_dmx = true;
     String ssid = "";
     String password = "";
 };
 
 class SettingsManager {
-public:
+   public:
     bool begin();
     void load(ControllerSettings &settings);
     void save(const ControllerSettings &settings);
     String to_json(const ControllerSettings &settings);
     void from_json(const String &json, ControllerSettings &settings);
-private:
+
+   private:
     Preferences prefs;
 };
 
-#endif // SETTINGS_MANAGER_H
+#endif  // SETTINGS_MANAGER_H

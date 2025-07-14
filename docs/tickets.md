@@ -949,7 +949,7 @@ Provide a `/status` API that lists connected nodes and identifies the current ro
 
 **Milestone**: Mesh & Sync
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -958,11 +958,11 @@ Push node status updates over WebSocket `/ws` every 500 ms.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1054,7 +1054,7 @@ Write unit tests verifying HSL to RGB conversion routines.
 
 **Milestone**: FX Engine & AutoFX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1063,11 +1063,11 @@ Test FXEngine frame timing to ensure consistent animation speed.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1075,7 +1075,7 @@ Test FXEngine frame timing to ensure consistent animation speed.
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -1084,11 +1084,11 @@ Translate incoming DMX frames into the LEDManager buffer for display.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1096,7 +1096,7 @@ Translate incoming DMX frames into the LEDManager buffer for display.
 
 **Milestone**: Art-Net and DMX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1105,11 +1105,11 @@ Add a setting to enable or disable physical DMX output via the web API.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1383,6 +1383,7 @@ Update version numbers across the project to 1.0.0 prior to release.
 - [ ] Code Written
 - [ ] Tests Passed
 - [ ] Documentation Written
+
 ### ✅ Checklist
 
 - [x] Started

@@ -13,6 +13,7 @@ const startChannel = document.getElementById(
 ) as HTMLInputElement;
 const ledCount = document.getElementById('led-count') as HTMLInputElement;
 const dmxUniverse = document.getElementById('dmx-universe') as HTMLInputElement;
+const enableDmx = document.getElementById('enable-dmx') as HTMLInputElement;
 const isRoot = document.getElementById('is-root') as HTMLInputElement;
 const extendNetwork = document.getElementById(
   'extend-network'
@@ -32,6 +33,7 @@ interface Settings {
   start_channel: number;
   led_count: number;
   dmx_universe: number;
+  enable_dmx: boolean;
   is_root: boolean;
   extend_network: boolean;
   ssid: string;
@@ -46,6 +48,7 @@ function loadSettings() {
       startChannel.value = String(s.start_channel);
       ledCount.value = String(s.led_count);
       dmxUniverse.value = String(s.dmx_universe);
+      enableDmx.checked = s.enable_dmx;
       isRoot.checked = s.is_root;
       extendNetwork.checked = s.extend_network;
       ssid.value = s.ssid;
@@ -60,6 +63,7 @@ function saveSettings() {
     start_channel: parseInt(startChannel.value, 10),
     led_count: parseInt(ledCount.value, 10),
     dmx_universe: parseInt(dmxUniverse.value, 10),
+    enable_dmx: enableDmx.checked,
     is_root: isRoot.checked,
     extend_network: extendNetwork.checked,
     ssid: ssid.value,
