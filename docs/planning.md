@@ -1,61 +1,122 @@
+# 🏁 Sprint-to-Release Roadmap  
+_LED Mesh Controller – v1.0_
 
-# 📍 planning.md
-
-This file defines major milestones and high-level tasks for the LED Mesh Controller. Tasks here are broken down into executable tickets in `tickets.md`.
-
-## 🧭 How to Use This Document
-
-- Each milestone is a phase of development
-- Each task under a milestone corresponds to one or more tickets
-- Agents and developers must refer here before creating or working on tickets
+> Goal: ship a feature-complete, stable build (firmware + WebUI) ready for field use in clubs / installations.
 
 ---
 
-## ✅ Milestone 1: Core System Initialization
+## 📅 Sprint 0 — Bootstrap & Repo Hygiene  (1–2 days)
 
-- T1.1: NVS Settings Schema
-- T1.2: Wi-Fi Setup with Fallback AP Mode
-- T1.3: AsyncWebServer and API Base
+| ✔︎ | Task ID | Description |
+|----|---------|-------------|
+| [ ] | T0.1   | Run `setup.sh`, commit initial repo scaffold |
+| [ ] | T0.2   | Configure GitHub Actions / PlatformIO compile check |
+| [ ] | T0.3   | Enforce `clang-format` / `prettier` hooks |
 
-## ✅ Milestone 2: Mesh Networking Framework
+---
 
-- T2.1: ESP-Mesh Init
-- T2.2: Root Node Auto-Election
-- T2.3: Mesh Messaging
-- T2.4: LED Feedback for Mesh State
+## 📅 Sprint 1 — Core System Green (4–5 days)
 
-## ✅ Milestone 3: FX Engine and LED Control
+### Milestone 1.1 — Settings & Wi-Fi
+- [ ] **T1.1** NVS settings schema complete  
+- [ ] **T1.2** Wi-Fi STA/AP with captive portal  
+- [ ] **T1.3** AsyncWebServer base (`/settings` GET/POST)
 
-- T3.1: Integrate NeoPixel
-- T3.2: FX Engine Core
-- T3.3: Basic Effects (Chase, Pulse)
-- T3.4: AutoFX Mode
+### Milestone 1.2 — Ticket Hygiene
+- [ ] Seed unit tests for Settings, Wi-Fi  
+- [ ] Update ticket checkboxes (Tests Written / Passed)
 
-## ✅ Milestone 4: Art-Net and DMX
+---
 
-- T4.1: Art-Net Receiver
-- T4.2: MAX485 DMX Output
-- T4.3: Universe Filtering
-- T4.4: Override Modes
+## 📅 Sprint 2 — Mesh & Sync (1 week)
 
-## ✅ Milestone 5: Web-Based Pro Console
+### Milestone 2.1 — Mesh Reliability
+- [ ] **T2.1** ESP-Mesh init + stable link  
+- [ ] **T2.2** RSSI-based root election  
+- [ ] **T2.3** JSON sync broadcast (`fx`, `color`, `bpm`)
 
-- T5.1: UI Layout
-- T5.2: Scene Controls
-- T5.3: Playback Buttons
-- T5.4: Scene Save/Recall
+### Milestone 2.2 — Node Status API
+- [ ] `/status` endpoint returns node list & current root  
+- [ ] WebSocket `/ws` push every 500 ms
 
-## ✅ Milestone 6: Smart Features
+---
 
-- T6.1: Complementary Color FX
-- T6.2: Mic Input for Beat Sync
-- T6.3: Node Topology Viewer
+## 📅 Sprint 3 — FX Engine & AutoFX (1 week)
 
-## ✅ Milestone 7: Documentation
+### Milestone 3.1 — FX Library v1
+- [ ] Static, Chase, Wipe, Bounce, ColorCycle, Pulse
 
-- T7.1: Project Wiki and README
+### Milestone 3.2 — AutoFX & Complementary Colors
+- [ ] Color-harmony generator (HSL → RGB)  
+- [ ] `/api/auto` enable/disable with speed param
 
-## ✅ Milestone 8: Build Tools
+### Milestone 3.3 — Unit Tests
+- [ ] Color conversion tests  
+- [ ] FX renderer timing tests
 
-- T8.1: Arduino CLI Script
+---
 
+## 📅 Sprint 4 — Art-Net & DMX (1 week)
+
+### Milestone 4.1 — Art-Net Input
+- [ ] UDP 6454 listener, universe filter  
+- [ ] Map to LED buffer
+
+### Milestone 4.2 — DMX Output
+- [ ] MAX485 UART break/mark‐after-break  
+- [ ] `/settings` toggle physical DMX
+
+---
+
+## 📅 Sprint 5 — Pro Console UX (1–1.5 weeks)
+
+### Milestone 5.1 — UI Foundation
+- [ ] Refactor JS → `app.js` (ES modules or Vite)  
+- [ ] WebSocket live updates
+
+### Milestone 5.2 — Color Wheel & FX Pads
+- [ ] Integrate `iro.js` wheel  
+- [ ] Animated FX preview pads
+
+### Milestone 5.3 — Node Dashboard
+- [ ] Node cards with color swatch, FX icon, RSSI, root badge  
+- [ ] Manual “Promote to Root” button
+
+### Milestone 5.4 — Scene Manager v1
+- [ ] Record, rename, save to SPIFFS (`scenes.json`)  
+- [ ] Drawer UI & click-to-play
+
+---
+
+## 📅 Sprint 6 — QA / Field Testing (4-5 days)
+
+- [ ] Full mesh stress test (≥ 10 nodes)  
+- [ ] Latency / FPS measurement  
+- [ ] Memory usage & brown-out test  
+- [ ] Docs: Quick Start, Wiring, UI guide
+
+---
+
+## 📅 Sprint 7 — Release Prep (2 days)
+
+- [ ] Bump version to **v1.0.0**  
+- [ ] Tag & GitHub Release zip  
+- [ ] Changelog `CHANGELOG.md`  
+- [ ] Final README badges & screenshots
+
+---
+
+## 🚦 Completion Criteria
+
+- All tickets’ checklists show ✅ Tests Passed & Documentation Written  
+- Demo video recorded in club environment  
+- At least one third-party tester reproduces setup from README successfully
+
+---
+
+## 🙌 Post-v1.0 Ideas (Backlog)
+
+- Mic / Audio Reactive FX  
+- Camera Color-Sample strobe  
+- OTA firmware updater  
+- Native iOS / Android wrapper  
