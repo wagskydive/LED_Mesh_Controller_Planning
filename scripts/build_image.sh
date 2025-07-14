@@ -4,12 +4,14 @@
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUTPUT_DIR="$ROOT_DIR/images"
 
-# Ensure PlatformIO is installed
-if ! command -v platformio >/dev/null 2>&1; then
+# Ensure PlatformIO is installed and up to date
+if command -v platformio >/dev/null 2>&1; then
+  echo "Updating PlatformIO..."
+else
   echo "Installing PlatformIO..."
-  python3 -m pip install --user platformio
-  export PATH="$HOME/.local/bin:$PATH"
 fi
+python3 -m pip install --user -U platformio
+export PATH="$HOME/.local/bin:$PATH"
 
 cd "$ROOT_DIR"
 platformio run
