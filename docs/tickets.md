@@ -23,8 +23,6 @@ Set up the development environment so that the project can be managed, versioned
 - [x] Tests Passed
 - [x] Documentation Written
 
----
-
 ## 🎟️ Ticket T8.5: Handle PEP 668 Python Environments
 
 **Milestone**: Build Tools
@@ -627,3 +625,45 @@ Update `build_image.sh` and the README with these instructions.
 - [x] Tests Passed
 - [x] Documentation Written
 
+
+---
+
+## 🎟️ Ticket T8.9: Document Permission Fixes
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Update `build_image.sh` to check that the project directory is writable and
+expand the README with instructions for fixing ownership when permission errors
+occur during setup.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.10: Flashing Image Files
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Document how to use the `.bin` files produced by `build_image.sh`. Explain how
+to install `esptool.py` and flash the ESP32 with the bootloader, partitions and
+firmware images.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
