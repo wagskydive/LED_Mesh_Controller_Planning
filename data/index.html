@@ -3,133 +3,41 @@
 <head>
     <meta charset="utf-8">
     <title>LED Mesh Controller</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        #scene-list li { cursor: pointer; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>LED Mesh Controller</h1>
-    <section>
-        <h2>Settings</h2>
-        <label>Universe <input id="universe" type="number" min="1"></label><br>
-        <label>Start Channel <input id="start-channel" type="number" min="1"></label><br>
-        <label>LED Count <input id="led-count" type="number" min="1"></label><br>
-        <label>DMX Universe <input id="dmx-universe" type="number" min="1"></label><br>
-        <label><input id="is-root" type="checkbox"> Root Node</label><br>
-        <input id="ssid" placeholder="WiFi SSID"><br>
-        <input id="password" type="password" placeholder="WiFi Password"><br>
-        <button id="save-settings-btn">Save Settings</button>
-    </section>
-    <section>
-        <h2>Scenes</h2>
-        <ul id="scene-list"></ul>
-        <input id="scene-name" placeholder="Scene name">
-        <select id="scene-effect">
-            <option value="CHASE">Chase</option>
-            <option value="PULSE">Pulse</option>
-            <option value="COMPLEMENTARY">Complementary</option>
-            <option value="NONE">None</option>
-        </select>
-        <button id="save-btn">Save</button>
-    </section>
-    <section>
-        <h2>Playback</h2>
-        <button id="reload-btn">Reload Scenes</button>
-        <button id="nodes-btn">Show Nodes</button>
-        <ul id="node-list"></ul>
-    </section>
-    <script>
-    const sceneList = document.getElementById('scene-list');
-    const sceneName = document.getElementById('scene-name');
-    const sceneEffect = document.getElementById('scene-effect');
-    const nodeList = document.getElementById('node-list');
-    const universe = document.getElementById('universe');
-    const startChannel = document.getElementById('start-channel');
-    const ledCount = document.getElementById('led-count');
-    const dmxUniverse = document.getElementById('dmx-universe');
-    const isRoot = document.getElementById('is-root');
-    const ssid = document.getElementById('ssid');
-    const password = document.getElementById('password');
-
-    function loadSettings() {
-        fetch('/settings').then(r => r.json()).then(s => {
-            universe.value = s.universe;
-            startChannel.value = s.start_channel;
-            ledCount.value = s.led_count;
-            dmxUniverse.value = s.dmx_universe;
-            isRoot.checked = s.is_root;
-            ssid.value = s.ssid;
-            password.value = s.password;
-        });
-    }
-
-    function saveSettings() {
-        const body = {
-            universe: parseInt(universe.value, 10),
-            start_channel: parseInt(startChannel.value, 10),
-            led_count: parseInt(ledCount.value, 10),
-            dmx_universe: parseInt(dmxUniverse.value, 10),
-            is_root: isRoot.checked,
-            ssid: ssid.value,
-            password: password.value
-        };
-        fetch('/settings', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(body)
-        }).then(loadSettings);
-    }
-
-    function loadScenes() {
-        fetch('/scenes').then(r => r.json()).then(data => {
-            sceneList.innerHTML = '';
-            data.forEach(sc => {
-                const li = document.createElement('li');
-                li.textContent = sc.name;
-                li.onclick = () => playScene(sc.id);
-                sceneList.appendChild(li);
-            });
-        });
-    }
-
-    function saveScene() {
-        fetch('/scenes').then(r => r.json()).then(data => {
-            const id = Date.now();
-            data.push({id, name: sceneName.value, effect: sceneEffect.value});
-            return fetch('/scenes', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            });
-        }).then(loadScenes);
-    }
-
-    function playScene(id) {
-        fetch('/play', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id})
-        });
-    }
-
-    function loadNodes() {
-        fetch('/nodes').then(r => r.json()).then(data => {
-            nodeList.innerHTML = '';
-            data.forEach(n => {
-                const li = document.createElement('li');
-                li.textContent = n;
-                nodeList.appendChild(li);
-            });
-        });
-    }
-
-    document.getElementById('save-btn').addEventListener('click', saveScene);
-    document.getElementById('reload-btn').addEventListener('click', loadScenes);
-    document.getElementById('nodes-btn').addEventListener('click', loadNodes);
-    document.getElementById('save-settings-btn').addEventListener('click', saveSettings);
-    loadScenes();
-    loadSettings();
-    </script>
+    <div class="container">
+        <section class="section settings">
+            <h2>Settings</h2>
+            <label>Universe <input id="universe" type="number" min="1"></label><br>
+            <label>Start Channel <input id="start-channel" type="number" min="1"></label><br>
+            <label>LED Count <input id="led-count" type="number" min="1"></label><br>
+            <label>DMX Universe <input id="dmx-universe" type="number" min="1"></label><br>
+            <label><input id="is-root" type="checkbox"> Root Node</label><br>
+            <input id="ssid" placeholder="WiFi SSID"><br>
+            <input id="password" type="password" placeholder="WiFi Password"><br>
+            <button id="save-settings-btn" class="button">Save Settings</button>
+        </section>
+        <section class="section scenes">
+            <h2>Scenes</h2>
+            <ul id="scene-list" class="scene-list"></ul>
+            <input id="scene-name" placeholder="Scene name">
+            <select id="scene-effect">
+                <option value="CHASE">Chase</option>
+                <option value="PULSE">Pulse</option>
+                <option value="COMPLEMENTARY">Complementary</option>
+                <option value="NONE">None</option>
+            </select>
+            <button id="save-btn" class="button">Save</button>
+        </section>
+        <section class="section playback">
+            <h2>Playback</h2>
+            <button id="reload-btn" class="button">Reload Scenes</button>
+            <button id="nodes-btn" class="button">Show Nodes</button>
+            <ul id="node-list" class="node-list"></ul>
+        </section>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
