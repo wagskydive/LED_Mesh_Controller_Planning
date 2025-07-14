@@ -1,19 +1,32 @@
 const sceneList = document.getElementById('scene-list') as HTMLUListElement;
 const sceneName = document.getElementById('scene-name') as HTMLInputElement;
-const sceneEffect = document.getElementById('scene-effect') as HTMLSelectElement;
+const sceneEffect = document.getElementById(
+  'scene-effect'
+) as HTMLSelectElement;
 const nodeList = document.getElementById('node-list') as HTMLUListElement;
+const rootStatus = document.getElementById(
+  'root-status'
+) as HTMLParagraphElement;
 const universe = document.getElementById('universe') as HTMLInputElement;
-const startChannel = document.getElementById('start-channel') as HTMLInputElement;
+const startChannel = document.getElementById(
+  'start-channel'
+) as HTMLInputElement;
 const ledCount = document.getElementById('led-count') as HTMLInputElement;
 const dmxUniverse = document.getElementById('dmx-universe') as HTMLInputElement;
 const isRoot = document.getElementById('is-root') as HTMLInputElement;
-const extendNetwork = document.getElementById('extend-network') as HTMLInputElement;
+const extendNetwork = document.getElementById(
+  'extend-network'
+) as HTMLInputElement;
 const wifiDiv = document.getElementById('wifi-credentials') as HTMLDivElement;
 const ssid = document.getElementById('ssid') as HTMLInputElement;
 const password = document.getElementById('password') as HTMLInputElement;
 const restartBtn = document.getElementById('restart-btn') as HTMLButtonElement;
 
-interface Scene { id: number; name: string; effect: string; }
+interface Scene {
+  id: number;
+  name: string;
+  effect: string;
+}
 interface Settings {
   universe: number;
   start_channel: number;
@@ -26,17 +39,19 @@ interface Settings {
 }
 
 function loadSettings() {
-  fetch('/settings').then(r => r.json()).then((s: Settings) => {
-    universe.value = String(s.universe);
-    startChannel.value = String(s.start_channel);
-    ledCount.value = String(s.led_count);
-    dmxUniverse.value = String(s.dmx_universe);
-    isRoot.checked = s.is_root;
-    extendNetwork.checked = s.extend_network;
-    ssid.value = s.ssid;
-    password.value = s.password;
-    toggleWifi();
-  });
+  fetch('/settings')
+    .then((r) => r.json())
+    .then((s: Settings) => {
+      universe.value = String(s.universe);
+      startChannel.value = String(s.start_channel);
+      ledCount.value = String(s.led_count);
+      dmxUniverse.value = String(s.dmx_universe);
+      isRoot.checked = s.is_root;
+      extendNetwork.checked = s.extend_network;
+      ssid.value = s.ssid;
+      password.value = s.password;
+      toggleWifi();
+    });
 }
 
 function saveSettings() {
@@ -48,44 +63,49 @@ function saveSettings() {
     is_root: isRoot.checked,
     extend_network: extendNetwork.checked,
     ssid: ssid.value,
-    password: password.value
+    password: password.value,
   };
   fetch('/settings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   }).then(loadSettings);
 }
 
 function loadScenes() {
-  fetch('/scenes').then(r => r.json()).then((data: Scene[]) => {
-    sceneList.innerHTML = '';
-    data.forEach(sc => {
-      const li = document.createElement('li');
-      li.textContent = sc.name;
-      li.onclick = () => playScene(sc.id);
-      sceneList.appendChild(li);
+  fetch('/scenes')
+    .then((r) => r.json())
+    .then((data: Scene[]) => {
+      sceneList.innerHTML = '';
+      data.forEach((sc) => {
+        const li = document.createElement('li');
+        li.textContent = sc.name;
+        li.onclick = () => playScene(sc.id);
+        sceneList.appendChild(li);
+      });
     });
-  });
 }
 
 function saveScene() {
-  fetch('/scenes').then(r => r.json()).then((data: Scene[]) => {
-    const id = Date.now();
-    data.push({ id, name: sceneName.value, effect: sceneEffect.value });
-    return fetch('/scenes', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-  }).then(loadScenes);
+  fetch('/scenes')
+    .then((r) => r.json())
+    .then((data: Scene[]) => {
+      const id = Date.now();
+      data.push({ id, name: sceneName.value, effect: sceneEffect.value });
+      return fetch('/scenes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+    })
+    .then(loadScenes);
 }
 
 function playScene(id: number) {
   fetch('/play', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id })
+    body: JSON.stringify({ id }),
   });
 }
 
@@ -94,20 +114,25 @@ function toggleWifi() {
 }
 
 function loadNodes() {
-  fetch('/nodes').then(r => r.json()).then((data: string[]) => {
-    nodeList.innerHTML = '';
-    data.forEach(n => {
-      const li = document.createElement('li');
-      li.textContent = n;
-      nodeList.appendChild(li);
+  fetch('/status')
+    .then((r) => r.json())
+    .then((data: { nodes: string[]; is_root: boolean }) => {
+      nodeList.innerHTML = '';
+      rootStatus.textContent = data.is_root ? 'Root node' : 'Mesh node';
+      data.nodes.forEach((n) => {
+        const li = document.createElement('li');
+        li.textContent = n;
+        nodeList.appendChild(li);
+      });
     });
-  });
 }
 
 document.getElementById('save-btn')?.addEventListener('click', saveScene);
 document.getElementById('reload-btn')?.addEventListener('click', loadScenes);
 document.getElementById('nodes-btn')?.addEventListener('click', loadNodes);
-document.getElementById('save-settings-btn')?.addEventListener('click', saveSettings);
+document
+  .getElementById('save-settings-btn')
+  ?.addEventListener('click', saveSettings);
 extendNetwork.addEventListener('change', toggleWifi);
 restartBtn.addEventListener('click', () => {
   saveSettings();
