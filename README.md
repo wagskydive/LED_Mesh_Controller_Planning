@@ -1,6 +1,9 @@
 # LED Mesh Controller
 
+[![Build](https://github.com/example/repo/actions/workflows/build.yml/badge.svg)](https://github.com/example/repo/actions)
+
 A firmware project for ESP32 devices that controls a network of LED nodes. It implements mesh networking, Art-Net to DMX bridging and a web-based console with lighting effects.
+
 
 ## Features
 
@@ -13,6 +16,7 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 - Adjust AutoFX cycling via `/api/auto` endpoint
 - HTTP server starts even if SPIFFS fails and serves a fallback page
 - WebSocket `/ws` pushes node status updates every 500&nbsp;ms
+- Node list in the web console updates live via WebSocket
 - DMX output can be disabled via the settings page
 - Settings API exposes the saved Wi-Fi password
 - `/wifi_scan` endpoint lists available networks
