@@ -16,6 +16,16 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 3. Upload the web console with `pio run --target uploadfs`.
 4. Flash the firmware with `pio run --target upload`.
 
+### Arduino CLI
+An optional helper script is provided for those using the Arduino IDE or
+`arduino-cli`. Execute `scripts/arduino_cli.sh` and pass your serial port to
+verify, build and upload the firmware:
+
+```bash
+./scripts/arduino_cli.sh /dev/ttyUSB0
+```
+The script will install the ESP32 core if needed and then compile and upload.
+
 ## Folder Structure
 ```
 /src  - firmware source

@@ -55,3 +55,7 @@ This file defines major milestones and high-level tasks for the LED Mesh Control
 
 - T7.1: Project Wiki and README
 
+## ✅ Milestone 8: Build Tools
+
+- T8.1: Arduino CLI Script
+
