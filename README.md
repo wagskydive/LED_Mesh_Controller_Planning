@@ -20,7 +20,8 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 
 ### Build Script
 The `scripts/build_image.sh` helper installs PlatformIO (if missing) and
-generates firmware binaries. Run it from the project root:
+generates firmware binaries. It also builds the SPIFFS image and merges all
+artifacts into `combined.bin`. Run it from the project root:
 
 ```bash
 chmod +x scripts/build_image.sh
@@ -56,8 +57,9 @@ script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
 command. The resulting files appear in the `images/` directory.
 
 ### Flashing Prebuilt Images
-The build script places three `.bin` files in the `images/` directory. To flash
-these images directly without using PlatformIO:
+The build script places the individual firmware bins and `spiffs.bin` in the
+`images/` directory. It also creates `combined.bin` which contains everything.
+To flash the separate files without using PlatformIO:
 
 1. Install [esptool.py](https://github.com/espressif/esptool) with `pip install esptool`.
 2. Put the ESP32 into bootloader mode (usually by holding the **BOOT** button
@@ -68,9 +70,17 @@ these images directly without using PlatformIO:
 esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 921600 write_flash -z \
   0x1000 bootloader.bin \
   0x8000 partitions.bin \
-  0x10000 firmware.bin
+  0x10000 firmware.bin \
+  0x290000 spiffs.bin  # use the offset listed for the spiffs partition
 ```
 After flashing completes, reset the board to start the new firmware.
+
+To flash `combined.bin` in one step, run:
+
+```bash
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 921600 write_flash \
+  0x0 combined.bin
+```
 
 ### Arduino CLI
 An optional helper script is provided for those using the Arduino IDE or
