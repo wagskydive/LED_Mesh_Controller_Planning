@@ -1,14 +1,17 @@
 #include "web_server.h"
 #include <ArduinoJson.h>
 #include "default_index.h"
+#include <Arduino.h>
 
 void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &settings,
                       SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh) {
     scenes = &scene_mgr;
     fx_engine = &fx;
     mesh_mgr = &mesh;
-    if (!SPIFFS.begin(true)) {
-        return;
+
+    bool spiffs_ok = SPIFFS.begin(true);
+    if (!spiffs_ok) {
+        Serial.println("[WebServer] SPIFFS mount failed, using fallback page");
     }
 
     server.on("/settings", HTTP_GET, [&settings_mgr, &settings](AsyncWebServerRequest *req) {
@@ -90,7 +93,7 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
             req->send(200, "application/json", "{}");
         });
 
-    if (SPIFFS.exists("/index.html")) {
+    if (spiffs_ok && SPIFFS.exists("/index.html")) {
         server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
     } else {
         server.on("/", HTTP_GET, [](AsyncWebServerRequest *req) {
