@@ -760,3 +760,596 @@ Provide an API endpoint to list nearby Wi-Fi networks so users can select an SSI
 - [x] Code Written
 - [x] Tests Passed
 - [ ] Documentation Written
+---
+## 🎟️ Ticket T0.2: Configure CI Build Check
+
+**Milestone**: Project Bootstrap
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Set up GitHub Actions or PlatformIO to verify firmware builds on every push.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T0.3: Enforce Code Format Hooks
+
+**Milestone**: Project Bootstrap
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Add clang-format and prettier git hooks to ensure consistent code style.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T1.4: Seed Unit Tests for Core Modules
+
+**Milestone**: Core System Green
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Create initial unit tests covering Settings and Wi-Fi functionality.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T1.5: Update Ticket Checkboxes
+
+**Milestone**: Core System Green
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Ensure all tickets include "Tests Written" and "Tests Passed" checklist items.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T2.5: Node Status Endpoint
+
+**Milestone**: Mesh & Sync
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Provide a `/status` API that lists connected nodes and identifies the current root.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T2.6: WebSocket Status Updates
+
+**Milestone**: Mesh & Sync
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Push node status updates over WebSocket `/ws` every 500 ms.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T3.5: Additional FX Library
+
+**Milestone**: FX Engine & AutoFX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Implement Static, Wipe, Bounce and ColorCycle effects in the FXEngine.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T3.6: Color-Harmony Generator
+
+**Milestone**: FX Engine & AutoFX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Generate complementary colors from HSL values for automatic FX modes.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T3.7: AutoFX Speed Control API
+
+**Milestone**: FX Engine & AutoFX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Expose `/api/auto` endpoint to enable or disable AutoFX with an adjustable speed parameter.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T3.8: Color Conversion Tests
+
+**Milestone**: FX Engine & AutoFX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Write unit tests verifying HSL to RGB conversion routines.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T3.9: FX Renderer Timing Tests
+
+**Milestone**: FX Engine & AutoFX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Test FXEngine frame timing to ensure consistent animation speed.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T4.5: Map Art-Net to LED Buffer
+
+**Milestone**: Art-Net and DMX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Translate incoming DMX frames into the LEDManager buffer for display.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T4.6: DMX Output Toggle
+
+**Milestone**: Art-Net and DMX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Add a setting to enable or disable physical DMX output via the web API.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.9: JS Module Refactor
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Refactor frontend code into `app.js` using ES modules or Vite build tooling.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.10: WebSocket Live Updates
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Send real-time data to the web console using WebSocket communication.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.11: Integrate iro.js Color Wheel
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Add an `iro.js` based color picker to the console for selecting LED colors.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.12: Animated FX Preview Pads
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Show animated previews of each effect on the console's FX buttons.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.13: Node Dashboard Cards
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Display node cards with color swatch, FX icon, RSSI indicator and root badge.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.14: Promote to Root Button
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Provide a manual button in the console to promote a selected node to root.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.15: Scene Rename and Save
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Allow recording new scenes, renaming them and storing to `scenes.json` on SPIFFS.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T5.16: Drawer UI with Click-to-Play
+
+**Milestone**: Pro Console UX
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Implement a drawer-style interface to list scenes and play them with a single click.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T6.4: Mesh Stress Test
+
+**Milestone**: QA / Field Testing
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Medium
+
+### 🎯 Description
+Test mesh stability with at least 10 nodes running simultaneously.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T6.5: Latency and FPS Measurement
+
+**Milestone**: QA / Field Testing
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Measure end-to-end latency and frames per second under load.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T6.6: Memory Usage Testing
+
+**Milestone**: QA / Field Testing
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Check for brown-outs and monitor heap usage during long runs.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T6.7: Documentation Suite
+
+**Milestone**: QA / Field Testing
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Write Quick Start, wiring guide and UI walkthrough documentation.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T7.2: Version Bump to v1.0.0
+
+**Milestone**: Release Prep
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Update version numbers across the project to 1.0.0 prior to release.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T7.3: Create GitHub Release
+
+**Milestone**: Release Prep
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Tag the repository and publish a GitHub Release with compiled binaries.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T7.4: Write CHANGELOG
+
+**Milestone**: Release Prep
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Create `CHANGELOG.md` documenting major features and fixes.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T7.5: Final README Updates
+
+**Milestone**: Release Prep
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Add final badges and screenshots to the README before release.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T9.1: Audio Reactive FX
+
+**Milestone**: Post v1.0 Backlog
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Use microphone input to drive lighting effects in sync with music.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T9.2: Camera Color-Sample Strobe
+
+**Milestone**: Post v1.0 Backlog
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Sample colors from a camera feed and strobe the LED strip accordingly.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T9.3: OTA Firmware Updater
+
+**Milestone**: Post v1.0 Backlog
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Support over-the-air firmware updates to simplify deployments.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
+
+---
+## 🎟️ Ticket T9.4: Native Mobile Wrapper
+
+**Milestone**: Post v1.0 Backlog
+**Created by**: assistant
+**Status**: 📝 Planned
+**Priority**: Low
+
+### 🎯 Description
+Package the web console as a native app for iOS and Android devices.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
