@@ -1264,7 +1264,7 @@ Allow recording new scenes, renaming them and storing to `scenes.json` on SPIFFS
 
 **Milestone**: Pro Console UX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1273,11 +1273,11 @@ Implement a drawer-style interface to list scenes and play them with a single cl
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1285,7 +1285,7 @@ Implement a drawer-style interface to list scenes and play them with a single cl
 
 **Milestone**: QA / Field Testing
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -1294,11 +1294,11 @@ Test mesh stability with at least 10 nodes running simultaneously.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1306,7 +1306,7 @@ Test mesh stability with at least 10 nodes running simultaneously.
 
 **Milestone**: QA / Field Testing
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1315,11 +1315,11 @@ Measure end-to-end latency and frames per second under load.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1327,7 +1327,7 @@ Measure end-to-end latency and frames per second under load.
 
 **Milestone**: QA / Field Testing
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1336,11 +1336,11 @@ Check for brown-outs and monitor heap usage during long runs.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1348,7 +1348,7 @@ Check for brown-outs and monitor heap usage during long runs.
 
 **Milestone**: QA / Field Testing
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1356,12 +1356,11 @@ Check for brown-outs and monitor heap usage during long runs.
 Write Quick Start, wiring guide and UI walkthrough documentation.
 
 ### ✅ Checklist
-
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1398,7 +1397,7 @@ Update version numbers across the project to 1.0.0 prior to release.
 
 **Milestone**: Release Prep
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1407,11 +1406,11 @@ Tag the repository and publish a GitHub Release with compiled binaries.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
