@@ -486,3 +486,22 @@ Provide a shell script using `arduino-cli` to verify, build and upload the firmw
 - [ ] Code Written
 - [ ] Tests Passed
 - [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.2: Arduino IDE Sketch
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Add an Arduino IDE compatible `.ino` file so the firmware can be compiled directly in the IDE.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
