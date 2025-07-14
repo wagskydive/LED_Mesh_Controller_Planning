@@ -26,6 +26,9 @@ verify, build and upload the firmware:
 ```
 The script will install the ESP32 core if needed and then compile and upload.
 
+### Arduino IDE
+When compiling with the Arduino IDE, select an **ESP32** board such as "ESP32 Dev Module". The firmware relies on ESP32-specific libraries and cannot be built for Arduino Uno or other AVR boards.
+
 ## Folder Structure
 ```
 /src  - firmware source

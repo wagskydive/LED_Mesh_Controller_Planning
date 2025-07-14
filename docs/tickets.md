@@ -505,3 +505,22 @@ Add an Arduino IDE compatible `.ino` file so the firmware can be compiled direct
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.3: Document ESP32 Board Requirement
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Document that the firmware only supports ESP32 boards. Add a compile guard in the `.ino` file and update the README with board selection instructions.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
