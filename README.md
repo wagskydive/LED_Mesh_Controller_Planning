@@ -50,10 +50,25 @@ sudo chown -R $(whoami):$(whoami) /path/to/LED_Mesh_Controller_Planning
 Then rerun the script.
 
 If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
-
-If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
 script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
 command. The resulting files appear in the `images/` directory.
+
+### Flashing Prebuilt Images
+The build script places three `.bin` files in the `images/` directory. To flash
+these images directly without using PlatformIO:
+
+1. Install [esptool.py](https://github.com/espressif/esptool) with `pip install esptool`.
+2. Put the ESP32 into bootloader mode (usually by holding the **BOOT** button
+   while pressing **RESET**).
+3. Run the following command, replacing `/dev/ttyUSB0` with your serial port:
+
+```bash
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 921600 write_flash -z \
+  0x1000 bootloader.bin \
+  0x8000 partitions.bin \
+  0x10000 firmware.bin
+```
+After flashing completes, reset the board to start the new firmware.
 
 ### Arduino CLI
 An optional helper script is provided for those using the Arduino IDE or
