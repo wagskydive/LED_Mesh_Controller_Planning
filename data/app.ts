@@ -22,6 +22,8 @@ const wifiDiv = document.getElementById('wifi-credentials') as HTMLDivElement;
 const ssid = document.getElementById('ssid') as HTMLInputElement;
 const password = document.getElementById('password') as HTMLInputElement;
 const restartBtn = document.getElementById('restart-btn') as HTMLButtonElement;
+const drawer = document.getElementById('scene-drawer') as HTMLDivElement;
+const toggleDrawerBtn = document.getElementById('toggle-drawer') as HTMLButtonElement;
 
 interface Scene {
   id: number;
@@ -144,6 +146,13 @@ function toggleWifi() {
   wifiDiv.style.display = extendNetwork.checked ? 'block' : 'none';
 }
 
+function toggleDrawer() {
+  drawer.classList.toggle('open');
+  if (drawer.classList.contains('open')) {
+    loadScenes();
+  }
+}
+
 function loadNodes() {
   fetch('/status')
     .then((r) => r.json())
@@ -164,6 +173,7 @@ document
   .getElementById('save-settings-btn')
   ?.addEventListener('click', saveSettings);
 extendNetwork.addEventListener('change', toggleWifi);
+toggleDrawerBtn.addEventListener('click', toggleDrawer);
 restartBtn.addEventListener('click', () => {
   saveSettings();
   fetch('/restart', { method: 'POST' });
