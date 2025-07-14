@@ -10,6 +10,12 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+# Ensure the project directory is writable
+if [ ! -w "$ROOT_DIR" ]; then
+  echo "Error: $ROOT_DIR is not writable. Fix permissions before running this script." >&2
+  exit 1
+fi
+
 # Ensure PlatformIO is installed in a local virtual environment
 VENV_DIR="$ROOT_DIR/.venv"
 if [ ! -d "$VENV_DIR" ]; then
