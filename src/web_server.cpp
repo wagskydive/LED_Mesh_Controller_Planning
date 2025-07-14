@@ -1,5 +1,6 @@
 #include "web_server.h"
 #include <ArduinoJson.h>
+#include "default_index.h"
 
 void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &settings,
                       SceneManager &scene_mgr, FXEngine &fx, MeshManager &mesh) {
@@ -89,6 +90,12 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
             req->send(200, "application/json", "{}");
         });
 
-    server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
+    if (SPIFFS.exists("/index.html")) {
+        server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
+    } else {
+        server.on("/", HTTP_GET, [](AsyncWebServerRequest *req) {
+            req->send_P(200, "text/html", DEFAULT_INDEX);
+        });
+    }
     server.begin();
 }

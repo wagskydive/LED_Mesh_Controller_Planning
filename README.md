@@ -14,6 +14,8 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 1. Install [PlatformIO](https://platformio.org/).
 2. Run `pio run` to build the firmware.
 3. Upload the web console with `pio run --target uploadfs`.
+   If this step is skipped, the device serves a fallback page instructing you to
+   upload the files.
 4. Flash the firmware with `pio run --target upload`.
 
 ### Build Script
