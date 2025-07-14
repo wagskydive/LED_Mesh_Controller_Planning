@@ -4,6 +4,12 @@
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUTPUT_DIR="$ROOT_DIR/images"
 
+# Abort if run as root to avoid permission issues
+if [ "$EUID" -eq 0 ]; then
+  echo "Do not run this script with sudo. It manages a local virtualenv." >&2
+  exit 1
+fi
+
 # Ensure PlatformIO is installed in a local virtual environment
 VENV_DIR="$ROOT_DIR/.venv"
 if [ ! -d "$VENV_DIR" ]; then
