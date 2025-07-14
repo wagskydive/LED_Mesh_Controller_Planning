@@ -743,3 +743,20 @@ Allow entering Wi-Fi credentials from the web console with an "Extend Network" o
 - [x] Code Written
 - [x] Tests Passed
 - [ ] Documentation Written
+
+## 🎟️ Ticket T5.8: WiFi Network Scan API
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: 🚧 In Progress
+**Priority**: Medium
+
+### 🎯 Description
+Provide an API endpoint to list nearby Wi-Fi networks so users can select an SSID when configuring network settings.
+
+### ✅ Checklist
+- [x] Started
+- [ ] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [ ] Documentation Written

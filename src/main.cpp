@@ -55,7 +55,7 @@ void setup() {
             fx_overridden = true;
         }
     });
-    web_server.begin(settings_mgr, settings, scene_mgr, fx_engine, mesh_mgr);
+    web_server.begin(settings_mgr, settings, scene_mgr, fx_engine, mesh_mgr, wifi_mgr);
 }
 
 void loop() {
