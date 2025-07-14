@@ -4,14 +4,15 @@
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUTPUT_DIR="$ROOT_DIR/images"
 
-# Ensure PlatformIO is installed and up to date
-if command -v platformio >/dev/null 2>&1; then
-  echo "Updating PlatformIO..."
-else
-  echo "Installing PlatformIO..."
+# Ensure PlatformIO is installed in a local virtual environment
+VENV_DIR="$ROOT_DIR/.venv"
+if [ ! -d "$VENV_DIR" ]; then
+  echo "Creating Python virtual environment..."
+  python3 -m venv "$VENV_DIR"
 fi
-python3 -m pip install --user -U platformio
-export PATH="$HOME/.local/bin:$PATH"
+source "$VENV_DIR/bin/activate"
+pip install --upgrade pip > /dev/null
+pip install --upgrade platformio > /dev/null
 
 cd "$ROOT_DIR"
 platformio run
