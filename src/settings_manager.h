@@ -11,6 +11,7 @@ struct ControllerSettings {
     uint16_t dmx_universe = 1;
     uint8_t mode = 0;
     bool is_root = false;
+    bool extend_network = false;
     String ssid = "";
     String password = "";
 };
