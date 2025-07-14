@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#ifndef ARDUINO_ARCH_ESP32
+#error "This firmware requires an ESP32 board. Select 'ESP32 Dev Module' in the Arduino IDE."
+#endif
 #include "src/settings_manager.h"
 #include "src/wifi_manager.h"
 #include "src/web_server.h"
@@ -8,9 +11,6 @@
 #include "src/artnet_receiver.h"
 #include "src/dmx_output.h"
 #include "src/scene_manager.h"
-#ifndef ARDUINO_ARCH_ESP32
-#error "This firmware requires an ESP32 board. Select 'ESP32 Dev Module' in the Arduino IDE."
-#endif
 #include "src/mic_input.h"
 
 SettingsManager settings_mgr;
