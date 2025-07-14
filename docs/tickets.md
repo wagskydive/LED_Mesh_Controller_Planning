@@ -646,3 +646,24 @@ occur during setup.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.10: Flashing Image Files
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Document how to use the `.bin` files produced by `build_image.sh`. Explain how
+to install `esptool.py` and flash the ESP32 with the bootloader, partitions and
+firmware images.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
