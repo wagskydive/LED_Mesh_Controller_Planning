@@ -726,3 +726,20 @@ Extend `build_image.sh` to generate `spiffs.bin` and merge all binaries into
 - [ ] Code Written
 - [ ] Tests Passed
 - [ ] Documentation Written
+
+## 🎟️ Ticket T5.7: WiFi Credentials Save & Restart
+
+**Milestone**: Web-Based Pro Console
+**Created by**: assistant
+**Status**: 🚧 In Progress
+**Priority**: Medium
+
+### 🎯 Description
+Allow entering Wi-Fi credentials from the web console with an "Extend Network" option. Display SSID/password fields only when enabled and provide a restart button. On restart the firmware should attempt to join the configured AP a few times before falling back to AP mode.
+
+### ✅ Checklist
+- [x] Started
+- [ ] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [ ] Documentation Written

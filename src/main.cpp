@@ -29,7 +29,11 @@ void setup() {
     Serial.begin(115200);
     settings_mgr.begin();
     settings_mgr.load(settings);
-    if (!wifi_mgr.connect(settings)) {
+    bool connected = false;
+    if (settings.extend_network) {
+        connected = wifi_mgr.connect(settings, 5);
+    }
+    if (!connected) {
         wifi_mgr.start_ap();
     }
     scene_mgr.begin();

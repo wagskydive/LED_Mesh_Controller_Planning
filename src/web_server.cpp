@@ -93,6 +93,12 @@ void WebServer::begin(SettingsManager &settings_mgr, ControllerSettings &setting
             req->send(200, "application/json", "{}");
         });
 
+    server.on("/restart", HTTP_POST, [](AsyncWebServerRequest *req) {
+        req->send(200, "text/plain", "restarting");
+        delay(100);
+        ESP.restart();
+    });
+
     if (spiffs_ok && SPIFFS.exists("/index.html")) {
         server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
     } else {

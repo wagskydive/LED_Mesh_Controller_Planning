@@ -15,8 +15,12 @@
             <label>LED Count <input id="led-count" type="number" min="1"></label><br>
             <label>DMX Universe <input id="dmx-universe" type="number" min="1"></label><br>
             <label><input id="is-root" type="checkbox"> Root Node</label><br>
-            <input id="ssid" placeholder="WiFi SSID"><br>
-            <input id="password" type="password" placeholder="WiFi Password"><br>
+            <label><input id="extend-network" type="checkbox"> Extend Network</label><br>
+            <div id="wifi-credentials">
+                <input id="ssid" placeholder="WiFi SSID"><br>
+                <input id="password" type="password" placeholder="WiFi Password"><br>
+                <button id="restart-btn" class="button">Restart</button>
+            </div>
             <button id="save-settings-btn" class="button">Save Settings</button>
         </section>
         <section class="section scenes">

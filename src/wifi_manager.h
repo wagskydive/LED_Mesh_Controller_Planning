@@ -6,7 +6,7 @@
 
 class WiFiManager {
 public:
-    bool connect(ControllerSettings &settings);
+    bool connect(ControllerSettings &settings, uint8_t attempts = 3);
     void start_ap();
 };
 

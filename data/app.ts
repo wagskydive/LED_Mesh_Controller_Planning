@@ -7,8 +7,11 @@ const startChannel = document.getElementById('start-channel') as HTMLInputElemen
 const ledCount = document.getElementById('led-count') as HTMLInputElement;
 const dmxUniverse = document.getElementById('dmx-universe') as HTMLInputElement;
 const isRoot = document.getElementById('is-root') as HTMLInputElement;
+const extendNetwork = document.getElementById('extend-network') as HTMLInputElement;
+const wifiDiv = document.getElementById('wifi-credentials') as HTMLDivElement;
 const ssid = document.getElementById('ssid') as HTMLInputElement;
 const password = document.getElementById('password') as HTMLInputElement;
+const restartBtn = document.getElementById('restart-btn') as HTMLButtonElement;
 
 interface Scene { id: number; name: string; effect: string; }
 interface Settings {
@@ -17,6 +20,7 @@ interface Settings {
   led_count: number;
   dmx_universe: number;
   is_root: boolean;
+  extend_network: boolean;
   ssid: string;
   password: string;
 }
@@ -28,8 +32,10 @@ function loadSettings() {
     ledCount.value = String(s.led_count);
     dmxUniverse.value = String(s.dmx_universe);
     isRoot.checked = s.is_root;
+    extendNetwork.checked = s.extend_network;
     ssid.value = s.ssid;
     password.value = s.password;
+    toggleWifi();
   });
 }
 
@@ -40,6 +46,7 @@ function saveSettings() {
     led_count: parseInt(ledCount.value, 10),
     dmx_universe: parseInt(dmxUniverse.value, 10),
     is_root: isRoot.checked,
+    extend_network: extendNetwork.checked,
     ssid: ssid.value,
     password: password.value
   };
@@ -82,6 +89,10 @@ function playScene(id: number) {
   });
 }
 
+function toggleWifi() {
+  wifiDiv.style.display = extendNetwork.checked ? 'block' : 'none';
+}
+
 function loadNodes() {
   fetch('/nodes').then(r => r.json()).then((data: string[]) => {
     nodeList.innerHTML = '';
@@ -97,6 +108,13 @@ document.getElementById('save-btn')?.addEventListener('click', saveScene);
 document.getElementById('reload-btn')?.addEventListener('click', loadScenes);
 document.getElementById('nodes-btn')?.addEventListener('click', loadNodes);
 document.getElementById('save-settings-btn')?.addEventListener('click', saveSettings);
+extendNetwork.addEventListener('change', toggleWifi);
+restartBtn.addEventListener('click', () => {
+  saveSettings();
+  fetch('/restart', { method: 'POST' });
+});
+
+toggleWifi();
 
 loadScenes();
 loadSettings();
