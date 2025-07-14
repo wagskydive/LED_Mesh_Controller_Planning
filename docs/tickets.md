@@ -566,3 +566,23 @@ converting the script to Unix line endings in the README.
 - [x] Code Written
 - [x] Tests Passed
 - [x] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.6: Validate Virtual Environment Creation
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: ✅ Completed
+**Priority**: Low
+
+### 🎯 Description
+Ensure `build_image.sh` gracefully handles missing `python3-venv` by checking
+for the `activate` script and guiding the user if creation fails.
+
+### ✅ Checklist
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written

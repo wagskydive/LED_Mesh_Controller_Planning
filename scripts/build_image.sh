@@ -10,6 +10,11 @@ if [ ! -d "$VENV_DIR" ]; then
   echo "Creating Python virtual environment..."
   python3 -m venv "$VENV_DIR"
 fi
+if [ ! -f "$VENV_DIR/bin/activate" ]; then
+  echo "Error: virtual environment not found in $VENV_DIR" >&2
+  echo "Install the python3-venv package and rerun this script." >&2
+  exit 1
+fi
 source "$VENV_DIR/bin/activate"
 pip install --upgrade pip > /dev/null
 pip install --upgrade platformio > /dev/null

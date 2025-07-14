@@ -25,9 +25,10 @@ chmod +x scripts/build_image.sh
 ./scripts/build_image.sh
 ```
 
-If `pip` reports an "externally-managed-environment" error, ensure the
-`python3-venv` package is installed and run the script without `sudo`.
-The script creates a `.venv` directory automatically to isolate PlatformIO.
+If `pip` reports an "externally-managed-environment" error or the script
+cannot create the virtual environment, install the `python3-venv` package
+and run the script without `sudo`. The helper creates a `.venv` directory
+automatically to isolate PlatformIO.
 
 If you encounter `/usr/bin/env: ‘bash\r’: No such file or directory`, convert the
 script to Unix line endings with `dos2unix scripts/build_image.sh` and rerun the
