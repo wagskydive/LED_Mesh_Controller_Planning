@@ -706,3 +706,23 @@ Allow the HTTP server to start even when SPIFFS fails to mount and return the st
 - [x] Code Written
 - [x] Tests Passed
 - [ ] Documentation Written
+
+---
+
+## 🎟️ Ticket T8.11: Combined Firmware Image
+
+**Milestone**: Build Tools
+**Created by**: assistant
+**Status**: 🚧 In Progress
+**Priority**: Low
+
+### 🎯 Description
+Extend `build_image.sh` to generate `spiffs.bin` and merge all binaries into
+`combined.bin`. Document how to flash the single file.
+
+### ✅ Checklist
+- [ ] Started
+- [ ] Tests Written
+- [ ] Code Written
+- [ ] Tests Passed
+- [ ] Documentation Written
