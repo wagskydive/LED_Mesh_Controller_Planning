@@ -4,6 +4,10 @@
 # Arduino build
 build/
 
+# Local tools
+bin/
+images/
+
 # OS files
 .DS_Store
 

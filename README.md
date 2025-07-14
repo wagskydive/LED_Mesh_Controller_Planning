@@ -16,6 +16,10 @@ A firmware project for ESP32 devices that controls a network of LED nodes. It im
 3. Upload the web console with `pio run --target uploadfs`.
 4. Flash the firmware with `pio run --target upload`.
 
+### Build Script
+Run `scripts/build_image.sh` to automatically set up PlatformIO and generate the
+final ESP32 image files. The binaries will be placed in the `images/` folder.
+
 ### Arduino CLI
 An optional helper script is provided for those using the Arduino IDE or
 `arduino-cli`. Execute `scripts/arduino_cli.sh` and pass your serial port to

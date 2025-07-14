@@ -474,18 +474,18 @@ Document all firmware functionality in a wiki-style markdown file and update the
 
 **Milestone**: Build Tools
 **Created by**: assistant
-**Status**: 🚧 In Progress
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
 Provide a shell script using `arduino-cli` to verify, build and upload the firmware to an ESP32 dev board.
 
 ### ✅ Checklist
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
