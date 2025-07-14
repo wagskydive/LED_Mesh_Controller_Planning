@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -e
 # Build ESP32 firmware image using PlatformIO
-set -e
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 OUTPUT_DIR="$ROOT_DIR/images"
