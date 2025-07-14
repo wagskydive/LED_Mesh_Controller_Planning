@@ -49,3 +49,77 @@ h1 {
   display: none;
   margin-top: 8px;
 }
+
+.fx-previews {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.fx-pad {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@keyframes chase {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+.effect-chase {
+  background: linear-gradient(
+      90deg,
+      #ff0000 0%,
+      #ff0000 25%,
+      #000 25%,
+      #000 50%,
+      #00ff00 50%,
+      #00ff00 75%,
+      #000 75%
+    );
+  background-size: 80px 40px;
+  animation: chase 1s linear infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.effect-pulse {
+  background: #007bff;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes colorcycle {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.effect-complementary {
+  background: linear-gradient(45deg, #ff0000, #00ff00);
+  animation: colorcycle 2s linear infinite;
+}
+
+.effect-none {
+  background: #ddd;
+}
+
+.scene-list button {
+  margin-left: 6px;
+}

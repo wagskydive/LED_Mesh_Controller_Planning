@@ -1180,7 +1180,7 @@ Add an `iro.js` based color picker to the console for selecting LED colors.
 
 **Milestone**: Pro Console UX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1189,11 +1189,11 @@ Show animated previews of each effect on the console's FX buttons.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1201,7 +1201,7 @@ Show animated previews of each effect on the console's FX buttons.
 
 **Milestone**: Pro Console UX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Medium
 
 ### 🎯 Description
@@ -1210,11 +1210,11 @@ Display node cards with color swatch, FX icon, RSSI indicator and root badge.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1222,7 +1222,7 @@ Display node cards with color swatch, FX icon, RSSI indicator and root badge.
 
 **Milestone**: Pro Console UX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1231,11 +1231,11 @@ Provide a manual button in the console to promote a selected node to root.
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 
@@ -1243,7 +1243,7 @@ Provide a manual button in the console to promote a selected node to root.
 
 **Milestone**: Pro Console UX
 **Created by**: assistant
-**Status**: 📝 Planned
+**Status**: ✅ Completed
 **Priority**: Low
 
 ### 🎯 Description
@@ -1252,11 +1252,11 @@ Allow recording new scenes, renaming them and storing to `scenes.json` on SPIFFS
 
 ### ✅ Checklist
 
-- [ ] Started
-- [ ] Tests Written
-- [ ] Code Written
-- [ ] Tests Passed
-- [ ] Documentation Written
+- [x] Started
+- [x] Tests Written
+- [x] Code Written
+- [x] Tests Passed
+- [x] Documentation Written
 
 ---
 

@@ -56,8 +56,14 @@ function loadScenes() {
         sceneList.innerHTML = '';
         data.forEach(function (sc) {
             var li = document.createElement('li');
-            li.textContent = sc.name;
-            li.onclick = function () { return playScene(sc.id); };
+            var span = document.createElement('span');
+            span.textContent = sc.name;
+            span.onclick = function () { return playScene(sc.id); };
+            var btn = document.createElement('button');
+            btn.textContent = 'Rename';
+            btn.onclick = function () { return renameScene(sc.id); };
+            li.appendChild(span);
+            li.appendChild(btn);
             sceneList.appendChild(li);
         });
     });
@@ -68,6 +74,26 @@ function saveScene() {
         .then(function (data) {
         var id = Date.now();
         data.push({ id: id, name: sceneName.value, effect: sceneEffect.value });
+        return fetch('/scenes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
+    })
+        .then(loadScenes);
+}
+function renameScene(id) {
+    var newName = prompt('New scene name?');
+    if (!newName) {
+        return;
+    }
+    fetch('/scenes')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+        var scene = data.find(function (s) { return s.id === id; });
+        if (scene) {
+            scene.name = newName;
+        }
         return fetch('/scenes', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
