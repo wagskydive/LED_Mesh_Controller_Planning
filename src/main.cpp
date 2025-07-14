@@ -43,8 +43,9 @@ void setup() {
     led_mgr.begin(settings.led_count, 5);
     fx_engine.begin(led_mgr);
     mic_input.begin(34);
-    fx_engine.enable_auto_fx(true);
-    fx_engine.set_effect(EffectType::CHASE);
+    fx_engine.attach_mic(mic_input);
+    fx_engine.enable_auto_fx(false);
+    fx_engine.set_effect(EffectType::AUDIO_REACTIVE);
     dmx_out.begin(Serial1, 17);
     artnet.begin();
     artnet.set_universe(settings.dmx_universe);
@@ -75,12 +76,16 @@ void loop() {
     if (fx_overridden) {
         if (millis() - last_dmx_time > DMX_TIMEOUT) {
             fx_overridden = false;
-            fx_engine.set_effect(EffectType::CHASE);
+            fx_engine.set_effect(EffectType::AUDIO_REACTIVE);
         }
     }
+    static unsigned long last_pulse = 0;
     if (!fx_overridden) {
         if (mic_input.detect_beat()) {
             fx_engine.set_effect(EffectType::PULSE);
+            last_pulse = millis();
+        } else if (fx_engine.get_effect() == EffectType::PULSE && millis() - last_pulse > 500) {
+            fx_engine.set_effect(EffectType::AUDIO_REACTIVE);
         }
         fx_engine.update();
     }

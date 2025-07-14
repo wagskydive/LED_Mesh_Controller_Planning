@@ -16,7 +16,8 @@ The LED Mesh Controller firmware coordinates multiple ESP32 nodes in a mesh netw
 - **DMXOutput** – transmits DMX512 data over RS485 via a MAX485 driver.
 - **WebSocket** – pushes `/status` updates to the console every 500 ms.
 - **SceneManager** – saves and loads scene presets on SPIFFS.
-- **MicInput** – detects beats from a microphone input pin.
+- **MicInput** – detects beats from a microphone input pin and provides levels
+  for the audio reactive effect.
 - **Topology API** – `/status` lists mesh nodes and whether this device is the root.
 
 ## Web Console
